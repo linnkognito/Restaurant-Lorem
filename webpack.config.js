@@ -40,6 +40,13 @@ module.exports = {
         test: /\.html$/i, // Handle HTML files
         loader: 'html-loader',
       },
+      {
+        test: /\.(png|jpe?g|svg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]',
+        },
+      },
     ],
   },
 

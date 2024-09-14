@@ -124,7 +124,7 @@ nav:hover {
   .sub-heading {
     @include headings;
     margin-bottom: -0.15em;
-    font-size: 5.5rem;
+    font-size: 3.5rem;
   }
   .smooth-scroll-down {
     position: absolute;
@@ -150,12 +150,14 @@ nav:hover {
   display: flex;
   gap: 2em;
 
+  // LEFT SIDE (text) //
   .about__text {
     position: relative;
     min-width: 50vw;
     padding: 7em 16em;
 
     h2 {
+      margin-bottom: 0.5em;
       font-family: vars.$font-heading;
       font-size: 6rem;
       text-decoration: none;
@@ -163,15 +165,22 @@ nav:hover {
     }
 
     .about__divider {
-      // position: absolute;
-      // top: 35%;
-      // left: 0;
+      position: relative;
       width: 100%;
-      margin-top: 12em;
-      margin-left: -15em;
-      border-top: 2.5px solid black;
+      height: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -30vw;
+        width: 40vw;
+        border-top: 2px solid black;
+        //transform: translateY(-50%);
+      }
     }
 
+    // RIGHT SIDE (image)
     .paragraph-container {
       position: relative;
       padding: 5em 3em 0 0;
@@ -185,7 +194,7 @@ nav:hover {
       bottom: 8.5%;
       left: 17%;
       width: 20%;
-      height: 25%;
+      height: 27%;
       background-color: vars.$sand;
       z-index: 1;
     }
@@ -220,6 +229,7 @@ nav:hover {
     justify-content: center;
     align-items: center;
     gap: 4%;
+    margin-bottom: 1em;
 
     img {
       width: 27%;
@@ -227,11 +237,6 @@ nav:hover {
       z-index: 2;
       transition: transform 0.5s ease;
     }
-    // img:hover {
-    //   transform: scale(1.1);
-    //   border-bottom: 1px solid vars.$rose-op;
-    //   cursor: pointer;
-    // }
   }
 
   .pictures__stripe {
@@ -246,10 +251,25 @@ nav:hover {
 
   ul {
     position: absolute;
-    bottom: 7%;
+    bottom: 15%;
     display: flex;
     flex-direction: row;
+    gap: 1.5em;
+    padding: 1em 1.5em;
     list-style: none;
+    border-top: 1px solid vars.$sand;
+
+    .dot-icon {
+      transform: scale(0.8);
+      opacity: 0.65;
+      transition: transform 0.3s ease;
+    }
+
+    .dot-icon:hover {
+      transform: scale(1);
+      opacity: 0.9;
+      cursor: pointer;
+    }
   }
 }
 

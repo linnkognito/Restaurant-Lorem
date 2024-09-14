@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode development",
-    "compile:sass": "sass --watch ./sass:public/css",
+    "compile:sass": "sass --watch ./src/sass:public/css",
     "serve": "webpack serve & compile:sass"
   },
   "keywords": [],

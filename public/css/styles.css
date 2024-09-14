@@ -109,7 +109,7 @@ nav:hover {
   align-items: center;
   justify-content: center;
   margin-right: 100em;
-  background-image: url("../img/lorem-background.jpg");
+  background-image: url("../img/photos/lorem-background.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -128,7 +128,7 @@ nav:hover {
   color: rgb(238, 238, 238);
   text-shadow: 1px 1px 1px black;
   margin-bottom: -0.15em;
-  font-size: 5.5rem;
+  font-size: 3.5rem;
 }
 #home .smooth-scroll-down {
   position: absolute;
@@ -157,16 +157,24 @@ nav:hover {
   padding: 7em 16em;
 }
 #about .about__text h2 {
+  margin-bottom: 0.5em;
   font-family: "Feonie", serif;
   font-size: 6rem;
   text-decoration: none;
   text-transform: uppercase;
 }
 #about .about__text .about__divider {
+  position: relative;
   width: 100%;
-  margin-top: 12em;
-  margin-left: -15em;
-  border-top: 2.5px solid black;
+  height: 0;
+}
+#about .about__text .about__divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30vw;
+  width: 40vw;
+  border-top: 2px solid black;
 }
 #about .about__text .paragraph-container {
   position: relative;
@@ -179,7 +187,7 @@ nav:hover {
   bottom: 8.5%;
   left: 17%;
   width: 20%;
-  height: 25%;
+  height: 27%;
   background-color: rgb(222, 212, 207);
   z-index: 1;
 }
@@ -209,6 +217,7 @@ nav:hover {
   justify-content: center;
   align-items: center;
   gap: 4%;
+  margin-bottom: 1em;
 }
 #slideshow .pictures-container img {
   width: 27%;
@@ -227,10 +236,23 @@ nav:hover {
 }
 #slideshow ul {
   position: absolute;
-  bottom: 7%;
+  bottom: 15%;
   display: flex;
   flex-direction: row;
+  gap: 1.5em;
+  padding: 1em 1.5em;
   list-style: none;
+  border-top: 1px solid rgb(222, 212, 207);
+}
+#slideshow ul .dot-icon {
+  transform: scale(0.8);
+  opacity: 0.65;
+  transition: transform 0.3s ease;
+}
+#slideshow ul .dot-icon:hover {
+  transform: scale(1);
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 #contact {
