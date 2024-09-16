@@ -9,6 +9,7 @@ const menu = document.querySelector('#menu');
 const contact = document.querySelector('#contact');
 
 const images = document.querySelectorAll('.picture-container > img');
+const dots = document.querySelector('.pictures__dots');
 
 //////////////////////////////////////////////
 
@@ -38,10 +39,10 @@ const navigation = function (e) {
 
 nav.addEventListener('click', (e) => navigation(e));
 
-console.log(images);
-
-document.querySelector('.pictures-img-1').addEventListener('click', (e) => {
+dots.addEventListener('click', (e) => {
   e.preventDefault();
+  let dot = e.target;
+  if (!dot.classList.contains('dot-icon')) return;
 
-  e.target.classList.add('minimize');
+  if (dot.classList('')) e.target.classList.add('minimize');
 });

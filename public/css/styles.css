@@ -153,11 +153,12 @@ nav:hover {
 }
 #about .about__text {
   position: relative;
-  min-width: 50vw;
-  padding: 7em 16em;
+  min-width: 45vw;
+  padding: 7em 0;
 }
 #about .about__text h2 {
-  margin-bottom: 0.5em;
+  margin-left: 10vw;
+  margin-bottom: 5vh;
   font-family: "Feonie", serif;
   font-size: 6rem;
   text-decoration: none;
@@ -172,13 +173,14 @@ nav:hover {
   content: "";
   position: absolute;
   top: 50%;
-  left: -30vw;
-  width: 40vw;
+  left: 0;
+  width: 25vw;
   border-top: 2px solid black;
 }
 #about .about__text .paragraph-container {
   position: relative;
-  padding: 5em 3em 0 0;
+  margin: 12vh 10vw 0 12vw;
+  padding-right: 4vw;
   border-right: 1px solid black;
   z-index: 20;
 }
@@ -192,12 +194,13 @@ nav:hover {
   z-index: 1;
 }
 #about .about__pictures {
-  min-width: 50vw;
-  padding-top: 5.5vw;
+  min-width: 55vw;
+  padding-top: 6vw;
   padding-right: 5vw;
 }
 #about .about__pictures .about__img-1 {
   width: 85%;
+  min-width: 85%;
 }
 
 #slideshow {
@@ -249,7 +252,8 @@ nav:hover {
   opacity: 0.65;
   transition: transform 0.3s ease;
 }
-#slideshow ul .dot-icon:hover {
+#slideshow ul .dot-icon:hover,
+#slideshow ul .dot-active {
   transform: scale(1);
   opacity: 0.9;
   cursor: pointer;

@@ -153,11 +153,13 @@ nav:hover {
   // LEFT SIDE (text) //
   .about__text {
     position: relative;
-    min-width: 50vw;
-    padding: 7em 16em;
+    min-width: 45vw;
+    padding: 7em 0;
+    // padding: 7em 16em;
 
     h2 {
-      margin-bottom: 0.5em;
+      margin-left: 10vw;
+      margin-bottom: 5vh;
       font-family: vars.$font-heading;
       font-size: 6rem;
       text-decoration: none;
@@ -173,18 +175,18 @@ nav:hover {
         content: '';
         position: absolute;
         top: 50%;
-        left: -30vw;
-        width: 40vw;
+        left: 0;
+        width: 25vw;
         border-top: 2px solid black;
         //transform: translateY(-50%);
       }
     }
 
-    // RIGHT SIDE (image)
     .paragraph-container {
       position: relative;
-      padding: 5em 3em 0 0;
-      // width: 50%;
+      margin: 12vh 10vw 0 12vw;
+      padding-right: 4vw;
+      // padding: 5em 3em 0 0;
       border-right: 1px solid black;
       z-index: 20;
     }
@@ -200,13 +202,15 @@ nav:hover {
     }
   }
 
+  // RIGHT SIDE (image)
   .about__pictures {
-    min-width: 50vw;
-    padding-top: 5.5vw;
+    min-width: 55vw;
+    padding-top: 6vw;
     padding-right: 5vw;
 
     .about__img-1 {
       width: 85%;
+      min-width: 85%;
     }
   }
 }
@@ -265,7 +269,8 @@ nav:hover {
       transition: transform 0.3s ease;
     }
 
-    .dot-icon:hover {
+    .dot-icon:hover,
+    .dot-active {
       transform: scale(1);
       opacity: 0.9;
       cursor: pointer;
