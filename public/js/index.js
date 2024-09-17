@@ -9,7 +9,6 @@ const menu = document.querySelector('#menu');
 const contact = document.querySelector('#contact');
 
 const picturesContainer = document.querySelector('.pictures-container');
-const pictures = document.querySelectorAll('.slideshow-img');
 const dotsContainer = document.querySelector('.dots-container');
 const dots = document.querySelectorAll('.dot');
 
@@ -39,7 +38,7 @@ const navigation = function (e) {
   if (classExist(destinations, 'contact')) return smoothScrollTo(contact);
 };
 
-nav.addEventListener('click', (e) => navigation(e));
+header.addEventListener('click', (e) => navigation(e));
 
 //////////////////////////////////////////////
 
@@ -97,6 +96,7 @@ const changeSlideshow = function (e) {
   // Visually indicate what dot is active:
   removeClass(currentDot, 'active');
   currentDot.querySelector('img').classList.remove('dot-active');
+
   addClass(dot, 'active');
   dot.querySelector('img').classList.add('dot-active');
 
@@ -113,6 +113,7 @@ const changeSlideshow = function (e) {
     `;
   };
 
+  // Apply animation one image at the time
   const addAnimation = function (el, className) {
     return new Promise((resolve) => {
       addClass(el, className);
