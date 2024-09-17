@@ -89,10 +89,13 @@ const changeSlideshow = function (e) {
   const dotsArr = [...dots];
   let currentDot = dotsArr.find((el) => el.classList.contains('active'));
 
+  const removeClass = (el, className) => el.classList.remove(className);
+  const addClass = (el, className) => el.classList.add(className);
+
   // Visually indicate what dot is active:
-  currentDot.classList.remove('active');
+  removeClass(currentDot, 'active');
   currentDot.querySelector('img').classList.remove('dot-active');
-  dot.classList.add('active');
+  addClass(dot, 'active');
   dot.querySelector('img').classList.add('dot-active');
 
   // PICTURES //
@@ -110,7 +113,7 @@ const changeSlideshow = function (e) {
 
   const addAnimation = function (el, className) {
     return new Promise((resolve) => {
-      el.classList.add(className);
+      addClass(el, className);
       setTimeout(() => {
         resolve();
       }, 100);
@@ -120,10 +123,10 @@ const changeSlideshow = function (e) {
   const applyAnimations = async function () {
     // Minimize current images
     for (const img of imgArr) {
+      //if (img.classList.contains('maximize')) img.classList.remove('maximize');
       await addAnimation(img, 'minimize');
     }
 
-    // Clear
     picturesContainer.innerHTML = '';
 
     // Insert markup for new images
@@ -136,7 +139,7 @@ const changeSlideshow = function (e) {
 
     // Maximize new images
     for (const img of imgArr) {
-      img.classList.remove('scale-zero'); // test
+      removeClass(img, 'scale-zero');
       await addAnimation(img, 'maximize');
     }
   };
