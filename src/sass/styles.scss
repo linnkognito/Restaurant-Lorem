@@ -287,6 +287,13 @@ nav:hover {
 // MENU //
 #contact {
   @include section();
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  .menu__bg-img {
+    position: absolute;
+  }
 }
 
 //////////////////////////////////////////////

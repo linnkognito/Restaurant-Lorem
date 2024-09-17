@@ -1,6 +1,7 @@
 import '../css/styles.css';
 import { init } from './init';
 
+const header = document.querySelector('header');
 const nav = document.querySelector('nav');
 const home = document.querySelector('#home');
 const about = document.querySelector('#about');
@@ -150,6 +151,7 @@ const changeSlideshow = function (e) {
 };
 
 dotsContainer.addEventListener('click', (e) => {
+  e.preventDefault();
   if (!e.target.classList.contains('dot-icon')) return;
   changeSlideshow(e);
 });
