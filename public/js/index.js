@@ -43,7 +43,7 @@ nav.addEventListener('click', (e) => navigation(e));
 //////////////////////////////////////////////
 
 // SLIDESHOW //
-const slideshow = [
+const slideshowImages = [
   [
     {
       path: '../img/photos/picture-0.jpg',
@@ -89,6 +89,7 @@ const changeSlideshow = function (e) {
   const dotsArr = [...dots];
   let currentDot = dotsArr.find((el) => el.classList.contains('active'));
 
+  // Helper functions
   const removeClass = (el, className) => el.classList.remove(className);
   const addClass = (el, className) => el.classList.add(className);
 
@@ -99,7 +100,7 @@ const changeSlideshow = function (e) {
   dot.querySelector('img').classList.add('dot-active');
 
   // PICTURES //
-  let imgArr = [...pictures];
+  let currentImages = [...picturesContainer.querySelectorAll('img')];
 
   const imgMarkup = (img) => {
     return `
@@ -122,27 +123,29 @@ const changeSlideshow = function (e) {
 
   const applyAnimations = async function () {
     // Minimize current images
-    for (const img of imgArr) {
-      //if (img.classList.contains('maximize')) img.classList.remove('maximize');
+    for (const img of currentImages) {
+      img.className = ''; // test
+      addClass(img, 'slideshow-img'); // test
       await addAnimation(img, 'minimize');
     }
-
-    picturesContainer.innerHTML = '';
+    // Remove minimized images from the DOM
+    currentImages.forEach((img) => img.remove());
 
     // Insert markup for new images
-    for (const img of slideshow[index].flat()) {
+    for (const img of slideshowImages[index].flat()) {
       picturesContainer.insertAdjacentHTML('afterbegin', imgMarkup(img));
     }
 
     // Insert new images
-    imgArr = [...document.querySelectorAll('.pictures-container img')];
+    const newImages = [...document.querySelectorAll('.pictures-container img')];
 
     // Maximize new images
-    for (const img of imgArr) {
+    for (const img of newImages) {
       removeClass(img, 'scale-zero');
       await addAnimation(img, 'maximize');
     }
   };
+
   applyAnimations();
 };
 
