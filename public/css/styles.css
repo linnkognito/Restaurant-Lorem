@@ -269,11 +269,53 @@ nav:hover {
   min-height: 100vh;
   background: rgb(238, 238, 238);
   position: relative;
+  display: inline-block;
+  background-color: rgb(238, 238, 238);
 }
 #menu .menu__bg-img {
   position: absolute;
   top: 50%;
+  left: 5%;
   transform: translateY(-50%);
+  z-index: 0;
+}
+#menu .menu__container {
+  position: relative;
+  width: 50vw;
+  min-height: 60vh;
+  margin-top: 10em;
+  padding: 2vh 2.5vw;
+  background: rgb(222, 212, 207);
+  z-index: 1;
+}
+#menu .menu__container .menu__container-card {
+  min-height: inherit;
+  padding: 5vh 2.5vw 2vh;
+  background-color: rgb(238, 238, 238);
+}
+#menu .menu__container .menu__container-card h2 {
+  font-family: "Feonie", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgb(238, 238, 238);
+  text-shadow: 1px 1px 1px black;
+  font-size: 5em;
+  font-weight: bolder;
+  color: black;
+}
+#menu .menu__container .menu__container-card h3 {
+  font-family: "Feonie", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgb(238, 238, 238);
+  text-shadow: 1px 1px 1px black;
+  font-size: 2.2em;
+  font-weight: bolder;
+  font-family: "Feonie Italic", serif;
+  color: black;
+}
+#menu .menu__container .menu__container-card p {
+  font-size: 1.15em;
 }
 
 .scale-zero {
