@@ -21,7 +21,6 @@
 @keyframes maximize {
   0% {
     transform: scale(0);
-    opacity: 0;
   }
   100% {
     transform: scale(1);
@@ -273,6 +272,11 @@ nav:hover {
 
 .scale-zero {
   transform: scale(0);
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .blur {
@@ -280,11 +284,11 @@ nav:hover {
 }
 
 .minimize {
-  animation: minimize 0.5s ease 1 forwards;
+  animation: minimize 0.25s ease 1 forwards;
 }
 
 .maximize {
-  animation: maximize 0.2s ease 1;
+  animation: maximize 0.25s ease 1 forwards;
 }
 
 ::selection {
