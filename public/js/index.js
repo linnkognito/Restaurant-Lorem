@@ -80,12 +80,11 @@ const slideshow = [
   ],
 ];
 
-dotsContainer.addEventListener('click', (e) => {
-  if (!e.target.classList.contains('dot-icon')) return;
-
+const changeSlideshow = function (e) {
   // DOTS //
   const dot = e.target.closest('li');
   if (dot.classList.contains('active')) return;
+
   const index = dot.getAttribute('data-index');
   const dotsArr = [...dots];
   let currentDot = dotsArr.find((el) => el.classList.contains('active'));
@@ -109,22 +108,22 @@ dotsContainer.addEventListener('click', (e) => {
     `;
   };
 
-  const addAnimation = function (el, className, time) {
+  const addAnimation = function (el, className) {
     return new Promise((resolve) => {
       el.classList.add(className);
       setTimeout(() => {
         resolve();
-      }, time);
+      }, 100);
     });
   };
 
   const applyAnimations = async function () {
-    // Minimize current images //
+    // Minimize current images
     for (const img of imgArr) {
-      await addAnimation(img, 'minimize', 250);
+      await addAnimation(img, 'minimize');
     }
 
-    // Clear //
+    // Clear
     picturesContainer.innerHTML = '';
 
     // Insert markup for new images
@@ -138,9 +137,13 @@ dotsContainer.addEventListener('click', (e) => {
     // Maximize new images
     for (const img of imgArr) {
       img.classList.remove('scale-zero'); // test
-      await addAnimation(img, 'maximize', 250);
+      await addAnimation(img, 'maximize');
     }
   };
-
   applyAnimations();
+};
+
+dotsContainer.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('dot-icon')) return;
+  changeSlideshow(e);
 });
