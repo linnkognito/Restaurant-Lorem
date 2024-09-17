@@ -269,7 +269,11 @@ nav:hover {
       transition: transform 0.3s ease;
     }
 
-    .dot-icon:hover,
+    .dot-icon:hover {
+      transform: scale(1);
+      opacity: 0.9;
+      cursor: pointer;
+    }
     .dot-active {
       transform: scale(1);
       opacity: 0.9;
@@ -288,8 +292,8 @@ nav:hover {
 //////////////////////////////////////////////
 
 // HELPER CLASSES //
-.hidden {
-  opacity: 0;
+.scale-zero {
+  transform: scale(0);
 }
 .blur {
   transition: filter 0.3s ease;
