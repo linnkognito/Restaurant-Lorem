@@ -270,17 +270,18 @@ nav:hover {
   position: relative;
   display: flex;
   min-width: 100vh;
-  padding: 5vh 0;
+  padding: 5vh 10vw;
   background: rgb(238, 238, 238);
   border-bottom: 1px solid black;
 }
 #menu .menu-large-wrapper {
   position: relative;
+  display: flex;
   width: 45vw;
   max-width: 45vw;
-  min-height: 60vh;
-  margin: 0 5vh 0 10vw;
-  padding: 3vh 3vw;
+  height: auto;
+  margin-right: 3vw;
+  padding: 3em 2em;
   background: rgba(177, 168, 163, 0.5);
   z-index: 1;
 }
@@ -289,8 +290,10 @@ nav:hover {
   grid-template-columns: auto auto;
   grid-template-rows: auto auto 1fr;
   width: 100%;
+  min-width: fit-content;
+  height: auto;
   min-height: 55vh;
-  padding: 5vh 2.5vw 2vh;
+  padding: 5vh 2vw;
   background: rgb(238, 238, 238);
 }
 #menu .menu-large-wrapper .menu-large-container .menu-large__title {
@@ -299,10 +302,11 @@ nav:hover {
   font-weight: 400;
   text-transform: uppercase;
   color: black;
-  grid-area: 2/1/3/3;
+  grid-area: 2/1/3/2;
   align-self: center;
+  min-width: 33%;
   margin: 0 1em 0 0.15em;
-  font-size: clamp(5rem, 5vw, 2rem);
+  font-size: clamp(5rem, 1vw, 2rem);
   font-family: "Feonie", serif;
 }
 #menu .menu-large-wrapper .menu-large-container .menu-large__subtitle {
@@ -315,7 +319,7 @@ nav:hover {
   margin-left: 0.5em;
   font-size: 2em;
   background: rgba(222, 212, 207, 0.8);
-  box-shadow: -1px 2px 1px rgba(147, 61, 75, 0.4);
+  box-shadow: -2px 2px 1px rgba(147, 61, 75, 0.4);
 }
 #menu .menu-large-wrapper .menu-large-container .menu-large__paragraph {
   grid-area: 2/2/3/3;
@@ -326,7 +330,7 @@ nav:hover {
 #menu .menu-large-wrapper .menu-large-container .menu-large__image {
   grid-area: 3/1/4/3;
   width: 100%;
-  padding: 3vh 1vw 1.5vh;
+  padding: 2em 1em 0 1em;
   border-top: 2px solid rgba(147, 61, 75, 0.4);
 }
 #menu .menu-large-wrapper .menu-large-container .menu-large__expand {
@@ -342,9 +346,10 @@ nav:hover {
   width: 22vw;
   height: fit-content;
   max-height: 80vh;
-  padding: 1em;
+  padding: 3em 2em;
   border: 1em solid rgba(147, 61, 75, 0.2);
   overflow-x: auto;
+  scrollbar-color: rgba(177, 168, 163, 0.5) rgba(222, 212, 207, 0.5);
 }
 #menu .menu-card-wrapper .menu-card .menu-card__title {
   width: fit-content;
@@ -352,15 +357,16 @@ nav:hover {
   font-weight: 400;
   text-transform: uppercase;
   color: black;
-  margin: 0.3em 0 0.5em 0.5em;
-  padding: 0.3em 0 0.2em;
+  margin: auto;
+  margin-bottom: 0.5em;
+  padding: 0.4em 0;
   font-size: 2.5rem;
+  text-align: center;
   border-top: 2.5px solid rgb(222, 212, 207);
   border-bottom: 2.5px solid rgb(222, 212, 207);
 }
 #menu .menu-card-wrapper .menu-card .menu-card__item {
-  margin: 0.5em;
-  padding: 0.5em 0.8em 1.2em;
+  padding: 1.5em 0.8em;
   border-bottom: 2px dotted rgb(222, 212, 207);
 }
 #menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-title--wrapper {
@@ -374,7 +380,7 @@ nav:hover {
   margin-bottom: 0.5em;
 }
 #menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-title--wrapper .menu-card__item-price {
-  text-decoration: italic;
+  font-style: italic;
   border-bottom: 1px solid rgb(222, 212, 207);
 }
 #menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-description {
@@ -383,11 +389,21 @@ nav:hover {
   font-size: 1em;
   text-decoration: italic;
 }
+#menu .menu-card-wrapper .menu-card .menu-card__item:hover {
+  background: rgba(147, 61, 75, 0.2);
+  border-bottom: 2px dotted rgb(222, 212, 207);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
 #menu .menu-card-wrapper .other-menus-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
-  margin: 1em;
-  padding: 0.1em;
+  margin: 1.5em 2em;
+  padding: 0.2em;
   background: rgb(222, 212, 207);
+  cursor: pointer;
 }
 #menu .menu-card-wrapper .other-menus-container .other-menus__btn {
   width: fit-content;
@@ -395,12 +411,23 @@ nav:hover {
   padding: 0 0.1em;
   font-family: "Feonie Italic", serif;
   text-transform: uppercase;
+  margin-right: 0.2em;
   font-size: 1.5rem;
   border: none;
   background: none;
+  cursor: inherit;
 }
 #menu .menu-card-wrapper .other-menus-container .other-menus__arrow-right {
-  color: black;
+  fill: black;
+  cursor: inherit;
+}
+#menu .menu-card-wrapper .other-menus-container:hover {
+  box-shadow: -2px 2px 0 rgba(147, 61, 75, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+#menu .menu-card-wrapper .other-menus-container:active {
+  transform: scale(0.97);
+  transition: transform 0.27s ease;
 }
 
 .scale-zero {
