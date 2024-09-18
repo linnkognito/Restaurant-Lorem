@@ -122,7 +122,6 @@ nav:hover {
   background-image: url('../img/photos/lorem-background.jpg');
   background-size: cover;
   background-position: center;
-  // border-radius: 0 1.3em 1.3em 0;
 
   h1 {
     @include headings;
@@ -293,7 +292,9 @@ nav:hover {
   @include section();
   position: relative;
   display: inline-block;
+  min-width: 100vh;
   background: vars.$off-white;
+  border-bottom: 1px solid black;
 
   // .menu__bg-img {
   //   position: absolute;
@@ -305,7 +306,7 @@ nav:hover {
   // }
 
   // LEFT SIDE (big menu card)
-  .menu__container {
+  .menu-large-wrapper {
     position: relative;
     width: 45vw;
     max-width: 45vw;
@@ -315,7 +316,7 @@ nav:hover {
     background: vars.$sand-dark-op;
     z-index: 1;
 
-    .menu__container-card {
+    .menu-large {
       display: grid;
       grid-template-columns: auto auto;
       grid-template-rows: auto auto 1fr;
@@ -324,17 +325,17 @@ nav:hover {
       padding: 5vh 2.5vw 2vh;
       background: vars.$off-white;
 
-      h2 {
+      .menu-large__title {
         @include headings-menu();
         grid-area: 2 / 1 / 3 / 3;
         align-self: center;
         width: fit-content;
         margin: 0 1em 0 0.15em;
-        font-size: 5em;
+        font-size: clamp(5rem, 5vw, 2rem);
         font-family: vars.$font-heading;
       }
 
-      h3 {
+      .menu-large__sub-title {
         @include headings-menu();
         grid-area: 1 / 2 / 2 / 3;
         width: fit-content;
@@ -344,25 +345,43 @@ nav:hover {
         font-size: 2.2em;
         font-family: vars.$font-heading-italic;
         background: vars.$sand-op;
-        border-bottom: 1px solid vars.$rose-op;
+        box-shadow: -1px 2px 1px vars.$rose-op;
+        //border-bottom: 1px solid vars.$rose-op;
       }
 
-      p {
+      .menu-large__paragraph {
         grid-area: 2 / 2 / 3 / 3;
-        font-size: 1em;
+        font-size: 1rem;
         padding: 0 1em 1em 0.1em;
       }
 
-      img {
+      .menu-large__image {
         grid-area: 3 / 1 / 4 / 3;
         width: 100%;
         padding: 3vh 1vw 1.5vh;
         border-top: 2px solid vars.$rose-op;
       }
+
+      .menu-large__expand {
+        font-style: italic;
+        background: vars.$sand-op;
+      }
     }
   }
 
   // RIGHT SIDE (small menu card)
+  .menu-cards-wrapper {
+    display: flex;
+
+    .menu-card {
+      width: 25vw;
+      height: 15vw;
+    }
+
+    .menu-card__title {
+      color: #000;
+    }
+  }
 }
 
 //////////////////////////////////////////////

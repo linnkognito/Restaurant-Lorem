@@ -125,19 +125,39 @@
         alt="Starter: fish with rye bread, sourcream, chives and onions."
         class="menu__bg-img"
       /> -->
-      <div class="menu__container">
-        <div class="menu__container-card">
-          <h2>Menu</h2>
-          <h3>Lorem Ipsum</h3>
-          <p>
+      <div class="menu-large-wrapper">
+        <div class="menu-large">
+          <h2 class="menu-large__title">Menu</h2>
+          <h3 class="menu-large__sub-title">Lorem Ipsum</h3>
+          <p class="menu-large__paragraph">
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
             consectetur, adipisci velit, sed quia non numquam eius modi tempora
             incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            <span class="menu-large__expand">>></span>
           </p>
-          <img src="../public/img/photos/about-1.jpg" alt="" />
+          <img
+            src="../public/img/photos/about-1.jpg"
+            alt=""
+            class="menu-large__image"
+          />
+        </div>
+      </div>
+
+      <div class="menu-cards-wrapper">
+        <div class="menu-card">
+          <h4 class="menu-card__title">Duis aute irure</h4>
+
+          <div class="menu-card__item">
+            <p class="menu-card__item-title">Excepteur sint</p>
+            <p class="menu-card__item-price">$12.95</p>
+            <em class="menu-card__item-description"
+              >Occaecat cupidatat non proident</em
+            >
+          </div>
         </div>
       </div>
     </div>
+
     <!-- /////////////////// CONTACT ///////////////////////-->
     <div id="contact"></div>
   </body>
