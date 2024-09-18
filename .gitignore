@@ -1,4 +1,6 @@
+.vscode
 node_modules
 dist
 public/img/photos-not-used
 public/copy-paste.html
+src/sass/discarded.scss
