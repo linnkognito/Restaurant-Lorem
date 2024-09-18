@@ -176,13 +176,13 @@ nav:hover {
   top: 50%;
   left: 0;
   width: 25vw;
-  border-top: 2px solid black;
+  border-top: 2px solid rgba(147, 61, 75, 0.4);
 }
 #about .about__text .paragraph-container {
   position: relative;
   margin: 12vh 10vw 0 12vw;
   padding-right: 4vw;
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(177, 168, 163, 0.5);
   z-index: 20;
 }
 #about .about__text .about__cube {
@@ -270,52 +270,64 @@ nav:hover {
   background: rgb(238, 238, 238);
   position: relative;
   display: inline-block;
-  background-color: rgb(238, 238, 238);
-}
-#menu .menu__bg-img {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  z-index: 0;
+  background: rgb(238, 238, 238);
 }
 #menu .menu__container {
   position: relative;
-  width: 50vw;
+  width: 45vw;
+  max-width: 45vw;
   min-height: 60vh;
-  margin-top: 10em;
-  padding: 2vh 2.5vw;
-  background: rgb(222, 212, 207);
+  margin: 5vh 0 0 10vw;
+  padding: 3vh 3vw;
+  background: rgba(177, 168, 163, 0.5);
   z-index: 1;
 }
 #menu .menu__container .menu__container-card {
-  min-height: inherit;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto 1fr;
+  width: 100%;
+  min-height: 55vh;
   padding: 5vh 2.5vw 2vh;
-  background-color: rgb(238, 238, 238);
+  background: rgb(238, 238, 238);
 }
 #menu .menu__container .menu__container-card h2 {
   font-family: "Feonie", serif;
   font-weight: 400;
   text-transform: uppercase;
-  color: rgb(238, 238, 238);
-  text-shadow: 1px 1px 1px black;
-  font-size: 5em;
-  font-weight: bolder;
   color: black;
+  grid-area: 2/1/3/3;
+  align-self: center;
+  width: fit-content;
+  margin: 0 1em 0 0.15em;
+  font-size: 5em;
+  font-family: "Feonie", serif;
 }
 #menu .menu__container .menu__container-card h3 {
   font-family: "Feonie", serif;
   font-weight: 400;
   text-transform: uppercase;
-  color: rgb(238, 238, 238);
-  text-shadow: 1px 1px 1px black;
-  font-size: 2.2em;
-  font-weight: bolder;
-  font-family: "Feonie Italic", serif;
   color: black;
+  grid-area: 1/2/2/3;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 0.5em;
+  padding: 0 0.1em;
+  font-size: 2.2em;
+  font-family: "Feonie Italic", serif;
+  background: rgba(222, 212, 207, 0.8);
+  border-bottom: 1px solid rgba(147, 61, 75, 0.4);
 }
 #menu .menu__container .menu__container-card p {
-  font-size: 1.15em;
+  grid-area: 2/2/3/3;
+  font-size: 1em;
+  padding: 0 1em 1em 0.1em;
+}
+#menu .menu__container .menu__container-card img {
+  grid-area: 3/1/4/3;
+  width: 100%;
+  padding: 3vh 1vw 1.5vh;
+  border-top: 2px solid rgba(147, 61, 75, 0.4);
 }
 
 .scale-zero {

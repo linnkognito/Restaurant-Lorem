@@ -38,6 +38,13 @@
   text-shadow: 1px 1px 1px black;
 }
 
+@mixin headings-menu() {
+  font-family: vars.$font-heading;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: black;
+}
+
 @mixin section() {
   width: 100%;
   min-height: 100vh;
@@ -144,7 +151,6 @@ nav:hover {
 //////////////////////////////////////////////
 
 // ABOUT //
-
 #about {
   @include section();
   display: flex;
@@ -177,8 +183,7 @@ nav:hover {
         top: 50%;
         left: 0;
         width: 25vw;
-        border-top: 2px solid black;
-        //transform: translateY(-50%);
+        border-top: 2px solid vars.$rose-op;
       }
     }
 
@@ -186,8 +191,7 @@ nav:hover {
       position: relative;
       margin: 12vh 10vw 0 12vw;
       padding-right: 4vw;
-      // padding: 5em 3em 0 0;
-      border-right: 1px solid black;
+      border-right: 1px solid vars.$sand-dark-op;
       z-index: 20;
     }
 
@@ -226,7 +230,7 @@ nav:hover {
   justify-content: center;
   align-items: center;
   padding: 10%;
-  background: vars.$sand-op;
+  background: vars.$sand-op-low;
 
   .pictures-container {
     display: flex;
@@ -289,50 +293,76 @@ nav:hover {
   @include section();
   position: relative;
   display: inline-block;
-  background-color: vars.$off-white;
+  background: vars.$off-white;
 
-  .menu__bg-img {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    z-index: 0;
-  }
+  // .menu__bg-img {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 60%;
+  //   max-width: 60vw;
+  //   transform: translate(-50%, -50%);
+  //   z-index: 0;
+  // }
 
+  // LEFT SIDE (big menu card)
   .menu__container {
     position: relative;
-    width: 50vw;
+    width: 45vw;
+    max-width: 45vw;
     min-height: 60vh;
-    margin-top: 10em;
-    padding: 2vh 2.5vw;
-    background: vars.$sand;
+    margin: 5vh 0 0 10vw;
+    padding: 3vh 3vw;
+    background: vars.$sand-dark-op;
     z-index: 1;
 
     .menu__container-card {
-      min-height: inherit;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto 1fr;
+      width: 100%;
+      min-height: 55vh;
       padding: 5vh 2.5vw 2vh;
-      background-color: vars.$off-white;
+      background: vars.$off-white;
 
       h2 {
-        @include headings();
+        @include headings-menu();
+        grid-area: 2 / 1 / 3 / 3;
+        align-self: center;
+        width: fit-content;
+        margin: 0 1em 0 0.15em;
         font-size: 5em;
-        font-weight: bolder;
-        color: black;
+        font-family: vars.$font-heading;
       }
 
       h3 {
-        @include headings();
+        @include headings-menu();
+        grid-area: 1 / 2 / 2 / 3;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 0.5em;
+        padding: 0 0.1em;
         font-size: 2.2em;
-        font-weight: bolder;
         font-family: vars.$font-heading-italic;
-        color: black;
+        background: vars.$sand-op;
+        border-bottom: 1px solid vars.$rose-op;
       }
 
       p {
-        font-size: 1.15em;
+        grid-area: 2 / 2 / 3 / 3;
+        font-size: 1em;
+        padding: 0 1em 1em 0.1em;
+      }
+
+      img {
+        grid-area: 3 / 1 / 4 / 3;
+        width: 100%;
+        padding: 3vh 1vw 1.5vh;
+        border-top: 2px solid vars.$rose-op;
       }
     }
   }
+
+  // RIGHT SIDE (small menu card)
 }
 
 //////////////////////////////////////////////
