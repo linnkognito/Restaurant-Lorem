@@ -372,12 +372,6 @@ nav:hover {
   margin: auto;
   border-right: 3em solid rgba(177, 168, 163, 0.5);
 }
-#menu .dish-preview-wrapper .dish-preview-rectangle {
-  position: absolute;
-  margin: auto;
-  padding: 1em;
-  border: 0.2em solid rgb(229, 220, 222);
-}
 #menu .dish-preview-wrapper .dish-preview {
   display: flex;
   flex-direction: column;
@@ -386,6 +380,14 @@ nav:hover {
   margin-top: 15em;
   padding-left: 1em;
   z-index: 1000;
+}
+#menu .dish-preview-wrapper .dish-preview .dish-preview-rectangle {
+  position: absolute;
+  left: 20%;
+  width: 100%;
+  height: 60%;
+  border: 0.15em solid rgb(229, 220, 222);
+  z-index: 0;
 }
 #menu .dish-preview-wrapper .dish-preview .dish-preview__price {
   right: 0;
@@ -424,11 +426,11 @@ nav:hover {
   position: relative;
   top: 0;
   right: 0;
-  z-index: 0;
+  z-index: 1;
 }
 #menu .dish-preview-wrapper .dish-preview__img img {
   width: 30vw;
-  z-index: 0;
+  z-index: 1;
 }
 #menu .menu-card-wrapper {
   display: flex;
