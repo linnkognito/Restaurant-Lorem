@@ -312,7 +312,7 @@ nav:hover {
     width: 45vw;
     max-width: 45vw;
     height: auto;
-    margin-right: 3vw;
+    margin-right: 1vw;
     padding: 3em 2em;
     background: vars.$sand-dark-op;
     z-index: 1;
@@ -393,19 +393,93 @@ nav:hover {
     }
   }
 
+  // RIGHT SIDE (MENU PREVIEW)
+  .dish-preview-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    min-width: 40vw;
+    height: 25vw;
+    margin: auto;
+    border-right: 3em solid vars.$sand-dark-op;
+
+    // Decorative //
+    .dish-preview-rectangle {
+      position: absolute;
+      margin: auto;
+      padding: 1em;
+      border: 0.2em solid vars.$rose-xlow;
+    }
+
+    .dish-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      height: 100%;
+      margin-top: 15em;
+      padding-left: 1em;
+      z-index: 1000;
+
+      .dish-preview__price {
+        right: 0;
+        margin: 0.6em;
+        font-style: italic;
+        font-size: 1.4rem;
+      }
+      .dish-preview__name {
+        @include headings-menu-subtitle();
+        position: relative;
+        left: 20%;
+        font-size: 3rem;
+        background: vars.$rose-xlow;
+        border-bottom: 0.1em solid vars.$rose-op-xlow;
+        z-index: 1000;
+      }
+
+      .dish-preview__description {
+        position: relative;
+        left: 20%;
+        align-self: start;
+        width: 100%;
+        height: auto;
+        margin: 1em 6em 0 0;
+        padding: 0.5em;
+        font-size: 1em;
+        text-align: left;
+        font-style: italic;
+        background: vars.$off-white;
+        box-shadow: -3px 3px 0 vars.$rose-op-xlow;
+      }
+    }
+
+    .dish-preview__img {
+      position: relative;
+      top: 0;
+      right: 0;
+      z-index: 0;
+
+      img {
+        width: 30vw;
+        z-index: 0;
+      }
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////
   // RIGHT SIDE (small menu card)
   .menu-card-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 2em 0.5em;
+    display: none;
   }
-
   // MENU CARD
   .menu-card {
     width: 22vw;
     height: fit-content;
-    max-height: 80vh;
+    max-height: 70vh;
     padding: 3em 2em;
     border: 1em solid vars.$rose-op-low;
     overflow-x: auto;

@@ -280,7 +280,7 @@ nav:hover {
   width: 45vw;
   max-width: 45vw;
   height: auto;
-  margin-right: 3vw;
+  margin-right: 1vw;
   padding: 3em 2em;
   background: rgba(177, 168, 163, 0.5);
   z-index: 1;
@@ -362,16 +362,85 @@ nav:hover {
   height: 100%;
   margin: 0.1em 1em;
 }
+#menu .dish-preview-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 40vw;
+  min-width: 40vw;
+  height: 25vw;
+  margin: auto;
+  border-right: 3em solid rgba(177, 168, 163, 0.5);
+}
+#menu .dish-preview-wrapper .dish-preview-rectangle {
+  position: absolute;
+  margin: auto;
+  padding: 1em;
+  border: 0.2em solid rgb(229, 220, 222);
+}
+#menu .dish-preview-wrapper .dish-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  height: 100%;
+  margin-top: 15em;
+  padding-left: 1em;
+  z-index: 1000;
+}
+#menu .dish-preview-wrapper .dish-preview .dish-preview__price {
+  right: 0;
+  margin: 0.6em;
+  font-style: italic;
+  font-size: 1.4rem;
+}
+#menu .dish-preview-wrapper .dish-preview .dish-preview__name {
+  width: fit-content;
+  height: fit-content;
+  padding: 0 0.1em;
+  font-family: "Feonie Italic", serif;
+  text-transform: uppercase;
+  position: relative;
+  left: 20%;
+  font-size: 3rem;
+  background: rgb(229, 220, 222);
+  border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
+  z-index: 1000;
+}
+#menu .dish-preview-wrapper .dish-preview .dish-preview__description {
+  position: relative;
+  left: 20%;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  margin: 1em 6em 0 0;
+  padding: 0.5em;
+  font-size: 1em;
+  text-align: left;
+  font-style: italic;
+  background: rgb(238, 238, 238);
+  box-shadow: -3px 3px 0 rgba(147, 61, 75, 0.1);
+}
+#menu .dish-preview-wrapper .dish-preview__img {
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+#menu .dish-preview-wrapper .dish-preview__img img {
+  width: 30vw;
+  z-index: 0;
+}
 #menu .menu-card-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 2em 0.5em;
+  display: none;
 }
 #menu .menu-card {
   width: 22vw;
   height: fit-content;
-  max-height: 80vh;
+  max-height: 70vh;
   padding: 3em 2em;
   border: 1em solid rgba(147, 61, 75, 0.2);
   overflow-x: auto;
