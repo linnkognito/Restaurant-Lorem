@@ -122,24 +122,50 @@
     <div id="menu">
       <div class="menu-wrapper">
         <div class="menu-container">
-          <div class="menu__title">
-            <span class="menu__title-category">Lunch</span>
-            <h2 class="menu__title">Menu</h2>
+          <!-- MENU HEADER -->
+          <div class="menu__header">
+            <div class="menu__title">
+              <span class="menu__title-category">Lunch</span>
+              <h2 class="menu__title-heading">Menu</h2>
+            </div>
+            <p class="menu__description">
+              <span class="menu__description--first-word"></span>Neque porro
+              quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed quia non numquam eius modi tempora incidunt ut
+              labore et dolore magnam aliquam quaerat voluptatem.
+            </p>
           </div>
+          <!-- MENU CONTENT -->
+          <div class="menu__content">
+            <div class="menu__slip">
+              <div class="menu-card__item">
+                <div class="menu-card__item-title--wrapper">
+                  <p class="menu-card__item-title">Excepteur sint</p>
+                  <span class="menu-card__item-price">$12.95</span>
+                </div>
+                <em class="menu-card__item-description">
+                  Occaecat cupidatat non proident.
+                </em>
+              </div>
+            </div>
 
-          <p class="menu__description">
-            <span class="menu__description--first-word"></span>Neque porro
-            quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-            adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-            labore et dolore magnam aliquam quaerat voluptatem.
-            <!-- <span class="menu__expand">>></span> -->
-          </p>
-          <img
-            src="../public/img/photos/about-1.jpg"
-            alt=""
-            class="menu__image"
-          />
+            <div class="menu__slip-divider"></div>
+
+            <div class="menu__slip">
+              <h4 class="menu__slip-heading">Starters</h4>
+              <div class="menu-card__item">
+                <div class="menu-card__item-title--wrapper">
+                  <p class="menu-card__item-title">Excepteur sint</p>
+                  <span class="menu-card__item-price">$12.95</span>
+                </div>
+                <em class="menu-card__item-description">
+                  Occaecat cupidatat non proident.
+                </em>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- ^ END OF menu-container -->
       </div>
 
       <div class="menu-card-wrapper">
@@ -151,7 +177,6 @@
               <p class="menu-card__item-title">Excepteur sint</p>
               <span class="menu-card__item-price">$12.95</span>
             </div>
-
             <em class="menu-card__item-description">
               Occaecat cupidatat non proident.
             </em>

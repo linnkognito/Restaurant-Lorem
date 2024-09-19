@@ -286,10 +286,8 @@ nav:hover {
   z-index: 1;
 }
 #menu .menu-wrapper .menu-container {
-  display: grid;
-  gap: 1em;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto 1fr;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   min-width: fit-content;
   height: auto;
@@ -297,41 +295,72 @@ nav:hover {
   padding: 5vh 2vw;
   background: rgb(238, 238, 238);
 }
-#menu .menu-wrapper .menu-container .menu__title {
+#menu .menu-wrapper .menu-container .menu__header {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: 2em;
+  padding: 1em 0;
+}
+#menu .menu-wrapper .menu-container .menu__header .menu__title {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
   text-transform: uppercase;
   color: black;
-  grid-area: 2/1/3/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: fit-content;
-  align-self: center;
-  margin: 0 0.3em;
-  font-size: clamp(5rem, 1vw, 2rem);
+  margin: 0 2em 0 1em;
+  padding-top: 0.5em;
   font-family: "Feonie", serif;
+  border-top: 2.5px solid rgba(147, 61, 75, 0.1);
+  border-bottom: 2.5px solid rgba(147, 61, 75, 0.1);
 }
-#menu .menu-wrapper .menu-container .menu__title-category {
+#menu .menu-wrapper .menu-container .menu__header .menu__title .menu__title-category {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
   text-transform: uppercase;
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
+  font-size: clamp(2rem, 1vw, 1rem);
 }
-#menu .menu-wrapper .menu-container .menu__description {
-  grid-area: 2/2/3/3;
+#menu .menu-wrapper .menu-container .menu__header .menu__title .menu__title-heading {
+  font-size: clamp(4.5rem, 1vw, 2.5rem);
+}
+#menu .menu-wrapper .menu-container .menu__header .menu__description {
+  margin-right: 1em;
   padding: 0 1em 1em 0.1em;
   font-size: 1rem;
 }
-#menu .menu-wrapper .menu-container .menu__image {
-  grid-area: 3/1/4/3;
-  width: 100%;
-  padding: 2em 1em 0 1em;
-  border-top: 2px solid rgba(147, 61, 75, 0.4);
+#menu .menu-wrapper .menu-container .menu__content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
-#menu .menu-wrapper .menu-container .menu__expand {
-  font-style: italic;
-  background: rgba(222, 212, 207, 0.8);
+#menu .menu-wrapper .menu-container .menu__content .menu__slip {
+  height: 100%;
+  padding: 2em 1em;
+  border: 0.3em solid rgba(147, 61, 75, 0.1);
+}
+#menu .menu-wrapper .menu-container .menu__content .menu__slip .menu__slip-heading {
+  width: fit-content;
+  height: fit-content;
+  padding: 0 0.1em;
+  font-family: "Feonie Italic", serif;
+  text-transform: uppercase;
+  margin: 0 0.5em;
+  padding: 0.1em;
+  font-size: 2rem;
+  background: rgba(147, 61, 75, 0.1);
+  border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
+}
+#menu .menu-wrapper .menu-container .menu__content .menu__slip-divider {
+  width: 0.1em;
+  height: 100%;
+  margin: 0.1em 1em;
 }
 #menu .menu-card-wrapper {
   display: flex;
@@ -339,7 +368,7 @@ nav:hover {
   justify-content: center;
   margin: 2em 0.5em;
 }
-#menu .menu-card-wrapper .menu-card {
+#menu .menu-card {
   width: 22vw;
   height: fit-content;
   max-height: 80vh;
@@ -348,7 +377,7 @@ nav:hover {
   overflow-x: auto;
   scrollbar-color: rgba(177, 168, 163, 0.5) rgba(222, 212, 207, 0.5);
 }
-#menu .menu-card-wrapper .menu-card .menu-card__title {
+#menu .menu-card__title {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
@@ -362,40 +391,40 @@ nav:hover {
   border-top: 2.5px solid rgb(222, 212, 207);
   border-bottom: 2.5px solid rgb(222, 212, 207);
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item {
+#menu .menu-card__item {
   padding: 1.5em 0.8em;
   border-bottom: 2px dotted rgb(222, 212, 207);
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-title--wrapper {
+#menu .menu-card__item .menu-card__item-title--wrapper {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin-left: 0.5em;
   padding-bottom: -10em;
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-title--wrapper .menu-card__item-title {
+#menu .menu-card__item .menu-card__item-title--wrapper .menu-card__item-title {
   margin-bottom: 0.5em;
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-title--wrapper .menu-card__item-price {
+#menu .menu-card__item .menu-card__item-title--wrapper .menu-card__item-price {
   font-style: italic;
   border-bottom: 1px solid rgb(222, 212, 207);
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item .menu-card__item-description {
+#menu .menu-card__item .menu-card__item-description {
   display: block;
   padding-left: 0.5em;
   font-size: 1em;
   text-decoration: italic;
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item:hover {
+#menu .menu-card__item:hover {
   background: rgba(147, 61, 75, 0.2);
   border-bottom: 2px dotted rgb(222, 212, 207);
   transition: background 0.3s ease;
   cursor: pointer;
 }
-#menu .menu-card-wrapper .menu-card .menu-card__item:active {
+#menu .menu-card__item:active {
   background: rgba(222, 212, 207, 0.8);
 }
-#menu .menu-card-wrapper .other-menus-container {
+#menu .other-menus-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -405,7 +434,7 @@ nav:hover {
   background: rgb(222, 212, 207);
   cursor: pointer;
 }
-#menu .menu-card-wrapper .other-menus-container .other-menus__btn {
+#menu .other-menus-container .other-menus__btn {
   width: fit-content;
   height: fit-content;
   padding: 0 0.1em;
@@ -417,15 +446,15 @@ nav:hover {
   background: none;
   cursor: inherit;
 }
-#menu .menu-card-wrapper .other-menus-container .other-menus__arrow-right {
+#menu .other-menus-container .other-menus__arrow-right {
   fill: black;
   cursor: inherit;
 }
-#menu .menu-card-wrapper .other-menus-container:hover {
+#menu .other-menus-container:hover {
   box-shadow: -2px 2px 0 rgba(147, 61, 75, 0.4);
   transition: box-shadow 0.3s ease;
 }
-#menu .menu-card-wrapper .other-menus-container:active {
+#menu .other-menus-container:active {
   transform: scale(0.97);
   transition: transform 0.27s ease;
 }

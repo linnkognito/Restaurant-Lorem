@@ -318,10 +318,8 @@ nav:hover {
     z-index: 1;
 
     .menu-container {
-      display: grid;
-      gap: 1em;
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: auto auto 1fr;
+      display: flex;
+      flex-direction: column;
       width: 100%;
       min-width: fit-content;
       height: auto;
@@ -329,38 +327,68 @@ nav:hover {
       padding: 5vh 2vw;
       background: vars.$off-white;
 
-      .menu__title {
-        @include headings-menu();
-        grid-area: 2 / 1 / 3 / 2;
-        width: fit-content;
-        align-self: center;
-        margin: 0 0.3em;
-        font-size: clamp(5rem, 1vw, 2rem);
-        font-family: vars.$font-heading;
+      .menu__header {
+        display: flex;
+        align-items: center;
+        height: fit-content;
+        margin-bottom: 2em;
+        padding: 1em 0;
+        // /border-bottom: 2px solid vars.$sand-op-low;
+
+        .menu__title {
+          @include headings-menu();
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: fit-content;
+          margin: 0 2em 0 1em;
+          padding-top: 0.5em;
+          font-family: vars.$font-heading;
+          border-top: 2.5px solid vars.$rose-op-xlow;
+          border-bottom: 2.5px solid vars.$rose-op-xlow;
+
+          .menu__title-category {
+            @include headings-menu();
+            font-size: 2rem;
+            font-size: clamp(2rem, 1vw, 1rem);
+          }
+
+          .menu__title-heading {
+            font-size: clamp(4.5rem, 1vw, 2.5rem);
+          }
+        }
+
+        .menu__description {
+          margin-right: 1em;
+          padding: 0 1em 1em 0.1em;
+          font-size: 1rem;
+        }
       }
 
-      .menu__title-category {
-        @include headings-menu();
-        font-size: 3rem;
-      }
+      .menu__content {
+        height: 100%;
+        display: flex;
+        justify-content: center;
 
-      .menu__description {
-        grid-area: 2 / 2 / 3 / 3;
-        // margin: 0.6em;
-        padding: 0 1em 1em 0.1em;
-        font-size: 1rem;
-      }
+        .menu__slip {
+          height: 100%;
+          padding: 2em 1em;
+          border: 0.3em solid vars.$rose-op-xlow;
 
-      .menu__image {
-        grid-area: 3 / 1 / 4 / 3;
-        width: 100%;
-        padding: 2em 1em 0 1em;
-        border-top: 2px solid vars.$rose-op;
-      }
-
-      .menu__expand {
-        font-style: italic;
-        background: vars.$sand-op;
+          .menu__slip-heading {
+            @include headings-menu-subtitle();
+            margin: 0 0.5em;
+            padding: 0.1em;
+            font-size: 2rem;
+            background: vars.$rose-op-xlow;
+            border-bottom: 0.1em solid vars.$rose-op-xlow;
+          }
+        }
+        .menu__slip-divider {
+          width: 0.1em;
+          height: 100%;
+          margin: 0.1em 1em;
+        }
       }
     }
   }
@@ -371,98 +399,101 @@ nav:hover {
     flex-direction: column;
     justify-content: center;
     margin: 2em 0.5em;
+  }
 
-    .menu-card {
-      width: 22vw;
-      height: fit-content;
-      max-height: 80vh;
-      padding: 3em 2em;
-      border: 1em solid vars.$rose-op-low;
-      overflow-x: auto;
-      scrollbar-color: vars.$sand-dark-op vars.$sand-op-low;
+  // MENU CARD
+  .menu-card {
+    width: 22vw;
+    height: fit-content;
+    max-height: 80vh;
+    padding: 3em 2em;
+    border: 1em solid vars.$rose-op-low;
+    overflow-x: auto;
+    scrollbar-color: vars.$sand-dark-op vars.$sand-op-low;
+  }
 
-      .menu-card__title {
-        @include headings-menu();
-        margin: auto;
-        margin-bottom: 0.5em;
-        padding: 0.4em 0;
-        font-size: 2.5rem;
-        text-align: center;
-        border-top: 2.5px solid vars.$sand;
-        border-bottom: 2.5px solid vars.$sand;
-      }
+  .menu-card__title {
+    @include headings-menu();
+    margin: auto;
+    margin-bottom: 0.5em;
+    padding: 0.4em 0;
+    font-size: 2.5rem;
+    text-align: center;
+    border-top: 2.5px solid vars.$sand;
+    border-bottom: 2.5px solid vars.$sand;
+  }
 
-      .menu-card__item {
-        padding: 1.5em 0.8em;
-        border-bottom: 2px dotted vars.$sand;
+  // MENU ITEM
+  .menu-card__item {
+    padding: 1.5em 0.8em;
+    border-bottom: 2px dotted vars.$sand;
 
-        .menu-card__item-title--wrapper {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          margin-left: 0.5em;
-          padding-bottom: -10em;
-
-          .menu-card__item-title {
-            margin-bottom: 0.5em;
-          }
-
-          .menu-card__item-price {
-            font-style: italic;
-            border-bottom: 1px solid vars.$sand;
-          }
-        }
-
-        .menu-card__item-description {
-          display: block;
-          padding-left: 0.5em;
-          font-size: 1em;
-          text-decoration: italic;
-        }
-      }
-      .menu-card__item:hover {
-        background: vars.$rose-op-low;
-        border-bottom: 2px dotted vars.$sand;
-        transition: background 0.3s ease;
-        cursor: pointer;
-      }
-      .menu-card__item:active {
-        background: vars.$sand-op;
-      }
-    }
-
-    .other-menus-container {
+    .menu-card__item-title--wrapper {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: fit-content;
-      margin: 1.5em 2em;
-      padding: 0.2em;
-      background: vars.$sand;
-      cursor: pointer;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-left: 0.5em;
+      padding-bottom: -10em;
 
-      .other-menus__btn {
-        @include headings-menu-subtitle();
-        margin-right: 0.2em;
-        font-size: 1.5rem;
-        border: none;
-        background: none;
-        cursor: inherit;
+      .menu-card__item-title {
+        margin-bottom: 0.5em;
       }
 
-      .other-menus__arrow-right {
-        fill: black;
-        cursor: inherit;
+      .menu-card__item-price {
+        font-style: italic;
+        border-bottom: 1px solid vars.$sand;
       }
     }
-    .other-menus-container:hover {
-      box-shadow: -2px 2px 0 vars.$rose-op;
-      transition: box-shadow 0.3s ease;
+
+    .menu-card__item-description {
+      display: block;
+      padding-left: 0.5em;
+      font-size: 1em;
+      text-decoration: italic;
     }
-    .other-menus-container:active {
-      transform: scale(0.97);
-      transition: transform 0.27s ease;
+  }
+  .menu-card__item:hover {
+    background: vars.$rose-op-low;
+    border-bottom: 2px dotted vars.$sand;
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  .menu-card__item:active {
+    background: vars.$sand-op;
+  }
+
+  // OTHER MENUS BUTTON
+  .other-menus-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 1.5em 2em;
+    padding: 0.2em;
+    background: vars.$sand;
+    cursor: pointer;
+
+    .other-menus__btn {
+      @include headings-menu-subtitle();
+      margin-right: 0.2em;
+      font-size: 1.5rem;
+      border: none;
+      background: none;
+      cursor: inherit;
     }
+
+    .other-menus__arrow-right {
+      fill: black;
+      cursor: inherit;
+    }
+  }
+  .other-menus-container:hover {
+    box-shadow: -2px 2px 0 vars.$rose-op;
+    transition: box-shadow 0.3s ease;
+  }
+  .other-menus-container:active {
+    transform: scale(0.97);
+    transition: transform 0.27s ease;
   }
 }
 
