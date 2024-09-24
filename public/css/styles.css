@@ -299,8 +299,7 @@ nav:hover {
   display: flex;
   align-items: center;
   height: fit-content;
-  margin-bottom: 2em;
-  padding: 1em 0;
+  margin-bottom: 1em;
 }
 #menu .menu-wrapper .menu-container .menu__header .menu__title {
   width: fit-content;
@@ -341,9 +340,13 @@ nav:hover {
   justify-content: center;
 }
 #menu .menu-wrapper .menu-container .menu__content .menu__slip {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  padding: 2em 1em;
+  padding: 1.2em 1em;
   border: 0.3em solid rgba(147, 61, 75, 0.1);
+  overflow-y: scroll;
+  scrollbar-color: rgba(177, 168, 163, 0.5) rgba(222, 212, 207, 0.5);
 }
 #menu .menu-wrapper .menu-container .menu__content .menu__slip .menu__slip-heading {
   width: fit-content;
@@ -351,49 +354,56 @@ nav:hover {
   padding: 0 0.1em;
   font-family: "Feonie Italic", serif;
   text-transform: uppercase;
-  margin: 0 0.5em;
+  margin: 0.1em 0.5em;
   padding: 0.1em;
-  font-size: 2rem;
+  font-size: 1.6rem;
   background: rgba(147, 61, 75, 0.1);
   border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
 }
 #menu .menu-wrapper .menu-container .menu__content .menu__slip-divider {
   width: 0.1em;
   height: 100%;
-  margin: 0.1em 1em;
+  margin: 0.1em 0.5em;
 }
 #menu .dish-preview-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  width: 40vw;
-  min-width: 40vw;
-  height: 25vw;
+  justify-content: center;
+  width: 50%;
+  min-width: 50%;
+  height: fit-content;
   margin: auto;
+  padding: 10%;
   border-right: 3em solid rgba(177, 168, 163, 0.5);
 }
 #menu .dish-preview-wrapper .dish-preview {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: end;
   height: 100%;
-  margin-top: 15em;
-  padding-left: 1em;
-  z-index: 1000;
+  padding: 0.5em 0 1em 0.5em;
+  z-index: 1;
 }
-#menu .dish-preview-wrapper .dish-preview .dish-preview-rectangle {
+#menu .dish-preview-wrapper .dish-preview .dish-preview__rectangle {
   position: absolute;
-  left: 20%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  height: 60%;
-  border: 0.15em solid rgb(229, 220, 222);
-  z-index: 0;
+  height: 100%;
+  border: 1px solid rgba(177, 168, 163, 0.5);
+  border-right: none;
+  z-index: 1;
 }
 #menu .dish-preview-wrapper .dish-preview .dish-preview__price {
   right: 0;
-  margin: 0.6em;
+  margin-right: 0 0.6em 0.6em 0;
   font-style: italic;
   font-size: 1.4rem;
+  z-index: 10;
 }
 #menu .dish-preview-wrapper .dish-preview .dish-preview__name {
   width: fit-content;
@@ -406,7 +416,7 @@ nav:hover {
   font-size: 3rem;
   background: rgb(229, 220, 222);
   border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
-  z-index: 1000;
+  z-index: 10;
 }
 #menu .dish-preview-wrapper .dish-preview .dish-preview__description {
   position: relative;
@@ -421,16 +431,13 @@ nav:hover {
   font-style: italic;
   background: rgb(238, 238, 238);
   box-shadow: -3px 3px 0 rgba(147, 61, 75, 0.1);
+  z-index: 10;
 }
 #menu .dish-preview-wrapper .dish-preview__img {
   position: relative;
-  top: 0;
-  right: 0;
-  z-index: 1;
 }
 #menu .dish-preview-wrapper .dish-preview__img img {
   width: 30vw;
-  z-index: 1;
 }
 #menu .menu-card-wrapper {
   display: flex;
@@ -463,7 +470,7 @@ nav:hover {
   border-bottom: 2.5px solid rgb(222, 212, 207);
 }
 #menu .menu-card__item {
-  padding: 1.5em 0.8em;
+  padding: 0.9em 0.5em;
   border-bottom: 2px dotted rgb(222, 212, 207);
 }
 #menu .menu-card__item .menu-card__item-title--wrapper {
@@ -475,6 +482,7 @@ nav:hover {
 }
 #menu .menu-card__item .menu-card__item-title--wrapper .menu-card__item-title {
   margin-bottom: 0.5em;
+  font-size: 1.2rem;
 }
 #menu .menu-card__item .menu-card__item-title--wrapper .menu-card__item-price {
   font-style: italic;
@@ -483,11 +491,11 @@ nav:hover {
 #menu .menu-card__item .menu-card__item-description {
   display: block;
   padding-left: 0.5em;
-  font-size: 1em;
+  font-size: 1rem;
   text-decoration: italic;
 }
 #menu .menu-card__item:hover {
-  background: rgba(147, 61, 75, 0.2);
+  background: rgba(147, 61, 75, 0.1);
   border-bottom: 2px dotted rgb(222, 212, 207);
   transition: background 0.3s ease;
   cursor: pointer;

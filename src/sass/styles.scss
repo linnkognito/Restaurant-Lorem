@@ -331,9 +331,7 @@ nav:hover {
         display: flex;
         align-items: center;
         height: fit-content;
-        margin-bottom: 2em;
-        padding: 1em 0;
-        // /border-bottom: 2px solid vars.$sand-op-low;
+        margin-bottom: 1em;
 
         .menu__title {
           @include headings-menu();
@@ -371,15 +369,19 @@ nav:hover {
         justify-content: center;
 
         .menu__slip {
+          display: flex;
+          flex-direction: column;
           height: 100%;
-          padding: 2em 1em;
+          padding: 1.2em 1em;
           border: 0.3em solid vars.$rose-op-xlow;
+          overflow-y: scroll;
+          scrollbar-color: vars.$sand-dark-op vars.$sand-op-low;
 
           .menu__slip-heading {
             @include headings-menu-subtitle();
-            margin: 0 0.5em;
+            margin: 0.1em 0.5em;
             padding: 0.1em;
-            font-size: 2rem;
+            font-size: 1.6rem;
             background: vars.$rose-op-xlow;
             border-bottom: 0.1em solid vars.$rose-op-xlow;
           }
@@ -387,7 +389,7 @@ nav:hover {
         .menu__slip-divider {
           width: 0.1em;
           height: 100%;
-          margin: 0.1em 1em;
+          margin: 0.1em 0.5em;
         }
       }
     }
@@ -398,38 +400,44 @@ nav:hover {
     position: relative;
     display: flex;
     align-items: center;
-    width: 40vw;
-    min-width: 40vw;
-    height: 25vw;
+    justify-content: center;
+    width: 50%;
+    min-width: 50%;
+    height: fit-content;
     margin: auto;
+    padding: 10%;
     border-right: 3em solid vars.$sand-dark-op;
 
     .dish-preview {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: end;
       height: 100%;
-      margin-top: 15em;
-      padding-left: 1em;
-      z-index: 1000;
+      padding: 0.5em 0 1em 0.5em;
+      z-index: 1;
 
-      // Decorative //
-      .dish-preview-rectangle {
+      .dish-preview__rectangle {
         position: absolute;
-        left: 20%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
-        height: 60%;
-        // background: vars.$sand-op-xlow;
-        border: 0.15em solid vars.$rose-xlow;
-        z-index: 0;
+        height: 100%;
+        border: 1px solid vars.$sand-dark-op;
+        border-right: none;
+        z-index: 1;
       }
 
       .dish-preview__price {
         right: 0;
-        margin: 0.6em;
+        margin-right: 0 0.6em 0.6em 0;
         font-style: italic;
         font-size: 1.4rem;
+        z-index: 10;
       }
+
       .dish-preview__name {
         @include headings-menu-subtitle();
         position: relative;
@@ -437,7 +445,7 @@ nav:hover {
         font-size: 3rem;
         background: vars.$rose-xlow;
         border-bottom: 0.1em solid vars.$rose-op-xlow;
-        z-index: 1000;
+        z-index: 10;
       }
 
       .dish-preview__description {
@@ -453,18 +461,15 @@ nav:hover {
         font-style: italic;
         background: vars.$off-white;
         box-shadow: -3px 3px 0 vars.$rose-op-xlow;
+        z-index: 10;
       }
     }
 
     .dish-preview__img {
       position: relative;
-      top: 0;
-      right: 0;
-      z-index: 1;
 
       img {
         width: 30vw;
-        z-index: 1;
       }
     }
   }
@@ -502,7 +507,7 @@ nav:hover {
 
   // MENU ITEM
   .menu-card__item {
-    padding: 1.5em 0.8em;
+    padding: 0.9em 0.5em;
     border-bottom: 2px dotted vars.$sand;
 
     .menu-card__item-title--wrapper {
@@ -514,6 +519,7 @@ nav:hover {
 
       .menu-card__item-title {
         margin-bottom: 0.5em;
+        font-size: 1.2rem;
       }
 
       .menu-card__item-price {
@@ -525,12 +531,12 @@ nav:hover {
     .menu-card__item-description {
       display: block;
       padding-left: 0.5em;
-      font-size: 1em;
+      font-size: 1rem;
       text-decoration: italic;
     }
   }
   .menu-card__item:hover {
-    background: vars.$rose-op-low;
+    background: vars.$rose-op-xlow;
     border-bottom: 2px dotted vars.$sand;
     transition: background 0.3s ease;
     cursor: pointer;

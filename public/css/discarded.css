@@ -1,9 +1,9 @@
-/* Error: There is no module with the namespace "vars".
+/* Error: expected "{".
  *    ,
- * 43 |   border: 1em solid vars.$rose-op-low;
- *    |                     ^^^^^^^^^^^^^^^^^
+ * 97 | <!-- <div class="menu-card-wrapper">
+ *    |  ^
  *    '
- *   src\sass\discarded.scss 43:21  root stylesheet */
+ *   src\sass\discarded.scss 97:2  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "vars".\a    \2577 \a 43 \2502    border: 1em solid vars.$rose-op-low;\d\a    \2502                      ^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\sass\\discarded.scss 43:21  root stylesheet';
+  content: 'Error: expected "{".\a    \2577 \a 97 \2502  <!-- <div class="menu-card-wrapper">\d\a    \2502   ^\a    \2575 \a   src\\sass\\discarded.scss 97:2  root stylesheet';
 }
