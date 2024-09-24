@@ -603,13 +603,63 @@ nav:hover {
 // CONTACT //
 #contact {
   @include section();
+  display: flex;
+  gap: 1em;
+  padding: 5% 10% 0;
+  padding-right: none;
 
   .contact-image {
     width: 50%;
     min-width: 50%;
-    border: 1px solid black;
+    height: 100vh;
+    min-height: 100vh;
+    background: url('../../public/img/photos/contact-bg.jpg');
+  }
+  .contact-content {
+    width: 50%;
+    min-width: 50%;
+    padding: 10% 0 0 2%;
+
+    .contact-heading {
+      @include headings-menu();
+      padding-bottom: 3%;
+      font-size: 5rem;
+    }
+    .contact-information {
+      width: 100%;
+      height: 50%;
+      margin-left: -40%;
+      padding: 2em;
+      background: vars.$off-white;
+      border: 1em solid vars.$sand-op;
+    }
   }
 }
+
+//////////////////////////////////////////////
+
+// FOOTER //
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  height: 30vh;
+  min-height: 30vh;
+  padding: 3em;
+  background: vars.$sand-dark;
+
+  .footer__container {
+    display: flex;
+    gap: 3em;
+  }
+
+  .footer-section {
+    width: 15%;
+  }
+}
+
+//////////////////////////////////////////////
 
 // HELPER CLASSES //
 .scale-zero {

@@ -556,11 +556,57 @@ nav:hover {
   width: calc(100% - 80px);
   min-height: 100vh;
   background: rgb(238, 238, 238);
+  display: flex;
+  gap: 1em;
+  padding: 5% 10% 0;
+  padding-right: none;
 }
 #contact .contact-image {
   width: 50%;
   min-width: 50%;
-  border: 1px solid black;
+  height: 100vh;
+  min-height: 100vh;
+  background: url("../../public/img/photos/contact-bg.jpg");
+}
+#contact .contact-content {
+  width: 50%;
+  min-width: 50%;
+  padding: 10% 0 0 2%;
+}
+#contact .contact-content .contact-heading {
+  width: fit-content;
+  font-family: "Feonie", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: black;
+  padding-bottom: 3%;
+  font-size: 5rem;
+}
+#contact .contact-content .contact-information {
+  width: 100%;
+  height: 50%;
+  margin-left: -40%;
+  padding: 2em;
+  background: rgb(238, 238, 238);
+  border: 1em solid rgba(222, 212, 207, 0.8);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  height: 30vh;
+  min-height: 30vh;
+  padding: 3em;
+  background: rgb(177, 168, 163);
+}
+footer .footer__container {
+  display: flex;
+  gap: 3em;
+}
+footer .footer-section {
+  width: 15%;
 }
 
 .scale-zero {
