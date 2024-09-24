@@ -100,7 +100,7 @@ nav:hover {
 }
 
 #home {
-  width: 100%;
+  width: calc(100% - 80px);
   min-height: 100vh;
   background: rgb(238, 238, 238);
   position: relative;
@@ -145,7 +145,7 @@ nav:hover {
 }
 
 #about {
-  width: 100%;
+  width: calc(100% - 80px);
   min-height: 100vh;
   background: rgb(238, 238, 238);
   display: flex;
@@ -204,7 +204,7 @@ nav:hover {
 }
 
 #slideshow {
-  width: 100%;
+  width: calc(100% - 80px);
   min-height: 100vh;
   background: rgb(238, 238, 238);
   position: relative;
@@ -264,23 +264,29 @@ nav:hover {
 }
 
 #menu {
-  width: 100%;
+  width: calc(100% - 80px);
   min-height: 100vh;
   background: rgb(238, 238, 238);
   position: relative;
   display: flex;
+  align-items: center;
   min-width: 100vh;
-  padding: 5vh 10vw;
   background: rgb(238, 238, 238);
-  border-bottom: 1px solid black;
+}
+#menu .menu-background {
+  position: absolute;
+  width: 100%;
+  height: 35%;
+  background: rgba(222, 212, 207, 0.5);
 }
 #menu .menu-wrapper {
   position: relative;
   display: flex;
-  width: 45vw;
-  max-width: 45vw;
+  width: 40%;
+  min-width: 40%;
   height: auto;
-  margin-right: 1vw;
+  min-height: 90vh;
+  margin-left: 7%;
   padding: 3em 2em;
   background: rgba(177, 168, 163, 0.5);
   z-index: 1;
@@ -292,7 +298,7 @@ nav:hover {
   min-width: fit-content;
   height: auto;
   min-height: 55vh;
-  padding: 5vh 2vw;
+  padding: 5% 2%;
   background: rgb(238, 238, 238);
 }
 #menu .menu-wrapper .menu-container .menu__header {
@@ -368,25 +374,26 @@ nav:hover {
 #menu .dish-preview-wrapper {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 50%;
   min-width: 50%;
   height: fit-content;
-  margin: auto;
-  padding: 10%;
+  margin-left: -7em;
+  padding: 3% 0;
   border-right: 3em solid rgba(177, 168, 163, 0.5);
 }
-#menu .dish-preview-wrapper .dish-preview {
+#menu .dish-preview-wrapper .dish-preview-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
+  gap: 0.1em;
+  width: 35%;
   height: 100%;
-  padding: 0.5em 0 1em 0.5em;
-  z-index: 1;
+  padding: 1em 0 1.5em 0;
 }
-#menu .dish-preview-wrapper .dish-preview .dish-preview__rectangle {
+#menu .dish-preview-wrapper .dish-preview-container .dish-preview__rectangle {
   position: absolute;
   top: 0;
   left: 0;
@@ -394,37 +401,41 @@ nav:hover {
   bottom: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(177, 168, 163, 0.5);
+  margin-left: 60%;
+  background: rgba(238, 238, 238, 0.8);
   border-right: none;
-  z-index: 1;
+  z-index: 0;
 }
-#menu .dish-preview-wrapper .dish-preview .dish-preview__price {
-  right: 0;
-  margin-right: 0 0.6em 0.6em 0;
+#menu .dish-preview-wrapper .dish-preview-container .dish-preview__price {
+  margin: 0 0.5em 0.4em 0;
   font-style: italic;
   font-size: 1.4rem;
   z-index: 10;
 }
-#menu .dish-preview-wrapper .dish-preview .dish-preview__name {
+#menu .dish-preview-wrapper .dish-preview-container .dish-preview__text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 0.5em;
+  width: 75%;
+  margin-right: -2em;
+}
+#menu .dish-preview-wrapper .dish-preview-container .dish-preview__name {
   width: fit-content;
   height: fit-content;
   padding: 0 0.1em;
   font-family: "Feonie Italic", serif;
   text-transform: uppercase;
   position: relative;
-  left: 20%;
   font-size: 3rem;
   background: rgb(229, 220, 222);
   border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
   z-index: 10;
 }
-#menu .dish-preview-wrapper .dish-preview .dish-preview__description {
+#menu .dish-preview-wrapper .dish-preview-container .dish-preview__description {
   position: relative;
-  left: 20%;
-  align-self: start;
   width: 100%;
   height: auto;
-  margin: 1em 6em 0 0;
   padding: 0.5em;
   font-size: 1em;
   text-align: left;
@@ -435,9 +446,12 @@ nav:hover {
 }
 #menu .dish-preview-wrapper .dish-preview__img {
   position: relative;
+  width: 65%;
+  margin-right: -10em;
+  z-index: 5;
 }
 #menu .dish-preview-wrapper .dish-preview__img img {
-  width: 30vw;
+  width: 100%;
 }
 #menu .menu-card-wrapper {
   display: flex;
@@ -536,6 +550,17 @@ nav:hover {
 #menu .other-menus-container:active {
   transform: scale(0.97);
   transition: transform 0.27s ease;
+}
+
+#contact {
+  width: calc(100% - 80px);
+  min-height: 100vh;
+  background: rgb(238, 238, 238);
+}
+#contact .contact-image {
+  width: 50%;
+  min-width: 50%;
+  border: 1px solid black;
 }
 
 .scale-zero {
