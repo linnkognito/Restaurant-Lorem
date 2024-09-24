@@ -582,13 +582,31 @@ nav:hover {
   padding-bottom: 3%;
   font-size: 5rem;
 }
-#contact .contact-content .contact-information {
+#contact .contact-content .contact-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
   width: 100%;
-  height: 50%;
+  height: fit-content;
+  min-height: 60%;
   margin-left: -40%;
   padding: 2em;
   background: rgb(238, 238, 238);
   border: 1em solid rgba(222, 212, 207, 0.8);
+}
+#contact .contact-content .contact-info--section {
+  width: 50%;
+  border: 1px solid black;
+}
+#contact .contact-content .contact-info__table {
+  margin: auto;
+}
+#contact .contact-content .contact-info__table-label {
+  font-size: 1.3rem;
+}
+#contact .contact-content .contact-info__table-data {
+  font-style: italic;
+  font-size: 1.2rem;
 }
 
 footer {

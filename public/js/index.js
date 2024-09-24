@@ -1,5 +1,5 @@
 import '../css/styles.css';
-import { init } from './init';
+//import { init } from './init';
 
 const header = document.querySelector('header');
 const nav = document.querySelector('nav');
@@ -156,3 +156,35 @@ dotsContainer.addEventListener('click', (e) => {
   if (!e.target.classList.contains('dot-icon')) return;
   changeSlideshow(e);
 });
+
+//////////////////////////////////////////////
+
+// PREVIEW DISH //
+const getRecipe = function (e) {
+  // Get data id from menu item
+  const id = e.target.dataset.id;
+
+  // Compare id with json data
+
+  // Generate markup
+  const markup = `
+    <div class="dish-preview-wrapper">
+      <div class="dish-preview-container">
+        <span class="dish-preview__price">$12.95</span>
+        <div class="dish-preview__text-container">
+          <h2 class="dish-preview__name">Scallops</h2>
+          <p class="dish-preview__description">
+            Dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+            eius modi.
+          </p>
+        </div>
+        <span class="dish-preview__rectangle"></span>
+      </div>
+      <div class="dish-preview__img">
+        <img src="../public/img/photos/about-1.jpg" alt="" />
+      </div>
+    </div>  
+    `;
+
+  // Clear container and insert markup
+};
