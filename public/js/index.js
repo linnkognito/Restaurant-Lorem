@@ -1,8 +1,6 @@
 import '../css/styles.css';
-//import { init } from './init';
 
 const header = document.querySelector('header');
-const nav = document.querySelector('nav');
 const home = document.querySelector('#home');
 const about = document.querySelector('#about');
 const menu = document.querySelector('#menu');
@@ -11,6 +9,9 @@ const contact = document.querySelector('#contact');
 const picturesContainer = document.querySelector('.pictures-container');
 const dotsContainer = document.querySelector('.dots-container');
 const dots = document.querySelectorAll('.dot');
+
+const menuItemPreview = document.querySelector('.dish-preview-wrapper');
+const menuColumn = document.querySelectorAll('.menu__slip');
 
 //////////////////////////////////////////////
 
@@ -160,31 +161,34 @@ dotsContainer.addEventListener('click', (e) => {
 //////////////////////////////////////////////
 
 // PREVIEW DISH //
-const getRecipe = function (e) {
-  // Get data id from menu item
-  const id = e.target.dataset.id;
+const getMenuItem = async (e, item) => {
+  try {
+    // Get data id from menu item
+    const id = item.dataset.id;
+    console.log(id);
 
-  // Compare id with json data
+    // Compare id with json data
+    const res = await fetch('http://127.0.0.1:8000/api/menu');
+    if (!res.ok) throw new Error('Failed to fetch data');
 
-  // Generate markup
-  const markup = `
-    <div class="dish-preview-wrapper">
-      <div class="dish-preview-container">
-        <span class="dish-preview__price">$12.95</span>
-        <div class="dish-preview__text-container">
-          <h2 class="dish-preview__name">Scallops</h2>
-          <p class="dish-preview__description">
-            Dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-            eius modi.
-          </p>
-        </div>
-        <span class="dish-preview__rectangle"></span>
-      </div>
-      <div class="dish-preview__img">
-        <img src="../public/img/photos/about-1.jpg" alt="" />
-      </div>
-    </div>  
-    `;
+    const data = await res.json();
+    console.log('FRONTEND:', data);
 
-  // Clear container and insert markup
+    // Generate markup
+    const markup = `<h1>Yes ${data.id}</h1>`;
+
+    // Clear container and insert markup
+    menuItemPreview.innerHTML = '';
+    menuItemPreview.innerHTML = markup;
+  } catch (err) {
+    console.log(err);
+  }
 };
+
+menuColumn.forEach((col) =>
+  col.addEventListener('click', (e) => {
+    e.preventDefault();
+    const listItem = e.target.closest('.menu-card__item');
+    if (listItem) getMenuItem(e, listItem);
+  })
+);

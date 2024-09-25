@@ -1,5 +1,6 @@
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
 
 const tempPreview = fs.readFileSync(
   './dev-data/templates/previewTemplate.html',
@@ -9,27 +10,23 @@ const data = fs.readFileSync('./dev-data/data/data.json', 'utf-8');
 const dataObj = JSON.parse(data);
 
 //////////////////////////////////////////////////////////
-const replaceWithHtml = (template, menuItem) => {
-  let output = template.replace(/{%MENU_ITEM_NAME%}/g, menuItem.name);
-  output = template.replace(/{%MENU_ITEM_PRICE%}/g, menuItem.price);
-  output = template.replace(/{%MENU_ITEM_DESCRIPTION%}/g, menuItem.description);
-  output = template.replace(/{%MENU_ITEM_IMG%}/g, menuItem.img);
-  output = template.replace(/{%MENU_ITEM_NAME%}/g, menuItem.imgAlt);
-};
+// const replaceWithHtml = (template, menuItem) => {
+//   let output = template.replace(/{%MENU_ITEM_NAME%}/g, menuItem.name);
+//   output = template.replace(/{%MENU_ITEM_PRICE%}/g, menuItem.price);
+//   output = template.replace(/{%MENU_ITEM_DESCRIPTION%}/g, menuItem.description);
+//   output = template.replace(/{%MENU_ITEM_IMG%}/g, menuItem.img);
+//   output = template.replace(/{%MENU_ITEM_NAME%}/g, menuItem.imgAlt);
+// return output;
+// };
 /////////////////////////////////////////////////////////
 
 const server = http.createServer((req, res) => {
-  const path = req.url;
+  const { pathname } = url.parse(req.url, true);
 
-  if (path === '/') {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    const previewHtml = dataObj.map((el) => replaceWithHtml(tempPreview, el));
-  }
-
-  if (path === '/api') {
+  if (pathname === '/api/menu') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(data);
+    console.log('BACKEND:', dataObj);
+    res.end(JSON.stringify(dataObj));
   } else {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end('<h1>Page not found!</h1>');
