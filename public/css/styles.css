@@ -291,7 +291,7 @@ nav:hover {
   background: rgba(177, 168, 163, 0.5);
   z-index: 1;
 }
-#menu .menu-wrapper .menu-container {
+#menu .menu-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -301,13 +301,13 @@ nav:hover {
   padding: 5% 2%;
   background: rgb(238, 238, 238);
 }
-#menu .menu-wrapper .menu-container .menu__header {
+#menu .menu-container .menu__header {
   display: flex;
   align-items: center;
   height: fit-content;
   margin-bottom: 1em;
 }
-#menu .menu-wrapper .menu-container .menu__header .menu__title {
+#menu .menu-container .menu__header .menu__title {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
@@ -323,7 +323,7 @@ nav:hover {
   border-top: 2.5px solid rgba(147, 61, 75, 0.1);
   border-bottom: 2.5px solid rgba(147, 61, 75, 0.1);
 }
-#menu .menu-wrapper .menu-container .menu__header .menu__title .menu__title-category {
+#menu .menu-container .menu__header .menu__title .menu__title-category {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
@@ -332,29 +332,30 @@ nav:hover {
   font-size: 2rem;
   font-size: clamp(2rem, 1vw, 1rem);
 }
-#menu .menu-wrapper .menu-container .menu__header .menu__title .menu__title-heading {
+#menu .menu-container .menu__header .menu__title .menu__title-heading {
   font-size: clamp(4.5rem, 1vw, 2.5rem);
 }
-#menu .menu-wrapper .menu-container .menu__header .menu__description {
+#menu .menu-container .menu__header .menu__description {
   margin-right: 1em;
   padding: 0 1em 1em 0.1em;
   font-size: 1rem;
 }
-#menu .menu-wrapper .menu-container .menu__content {
+#menu .menu-container .menu__content {
   height: 100%;
   display: flex;
   justify-content: center;
 }
-#menu .menu-wrapper .menu-container .menu__content .menu__slip {
+#menu .menu-container .menu__content .menu__slip {
   display: flex;
   flex-direction: column;
+  width: 50%;
   height: 100%;
   padding: 1.2em 1em;
   border: 0.3em solid rgba(147, 61, 75, 0.1);
   overflow-y: scroll;
   scrollbar-color: rgba(177, 168, 163, 0.5) rgba(222, 212, 207, 0.5);
 }
-#menu .menu-wrapper .menu-container .menu__content .menu__slip .menu__slip-heading {
+#menu .menu-container .menu__content .menu__slip .menu__slip-heading {
   width: fit-content;
   height: fit-content;
   padding: 0 0.1em;
@@ -366,7 +367,7 @@ nav:hover {
   background: rgba(147, 61, 75, 0.1);
   border-bottom: 0.1em solid rgba(147, 61, 75, 0.1);
 }
-#menu .menu-wrapper .menu-container .menu__content .menu__slip-divider {
+#menu .menu-container .menu__content .menu__slip-divider {
   width: 0.1em;
   height: 100%;
   margin: 0.1em 0.5em;

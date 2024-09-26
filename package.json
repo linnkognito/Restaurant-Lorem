@@ -7,6 +7,7 @@
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.0",
     "node-sass": "^9.0.0",
+    "nodemon-webpack-plugin": "^4.8.2",
     "sass": "^1.78.0",
     "sass-loader": "^16.0.1",
     "style-loader": "^4.0.0",
@@ -17,14 +18,14 @@
   "scripts": {
     "start": "webpack serve --config webpack.config.js --mode development",
     "start:server": "nodemon server.js",
-    "compile:sass": "sass --watch ./src/sass:public/css",
-    "serve": "webpack serve & compile:sass"
+    "compile:sass": "sass --watch ./src/sass:public/css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.21.0",
     "nodemon": "^3.1.7"
   }
 }

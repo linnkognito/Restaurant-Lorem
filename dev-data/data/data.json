@@ -4,7 +4,8 @@
     "name": "Scallops",
     "price": 12.99,
     "description": "Dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi.",
-    "img": "about-1.jpg",
-    "imgAlt": "Scallops"
+    "img": "/img/photos/about-1.jpg",
+    "imgAlt": "Scallops",
+    "category": "starter"
   }
 ]

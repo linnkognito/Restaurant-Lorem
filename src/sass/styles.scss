@@ -325,81 +325,81 @@ nav:hover {
     padding: 3em 2em;
     background: vars.$sand-dark-op;
     z-index: 1;
+  }
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: fit-content;
+    height: auto;
+    min-height: 55vh;
+    padding: 5% 2%;
+    background: vars.$off-white;
 
-    .menu-container {
+    .menu__header {
       display: flex;
-      flex-direction: column;
-      width: 100%;
-      min-width: fit-content;
-      height: auto;
-      min-height: 55vh;
-      padding: 5% 2%;
-      background: vars.$off-white;
+      align-items: center;
+      height: fit-content;
+      margin-bottom: 1em;
 
-      .menu__header {
+      .menu__title {
+        @include headings-menu();
         display: flex;
+        flex-direction: column;
         align-items: center;
-        height: fit-content;
-        margin-bottom: 1em;
+        width: fit-content;
+        margin: 0 2em 0 1em;
+        padding-top: 0.5em;
+        font-family: vars.$font-heading;
+        border-top: 2.5px solid vars.$rose-op-xlow;
+        border-bottom: 2.5px solid vars.$rose-op-xlow;
 
-        .menu__title {
+        .menu__title-category {
           @include headings-menu();
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: fit-content;
-          margin: 0 2em 0 1em;
-          padding-top: 0.5em;
-          font-family: vars.$font-heading;
-          border-top: 2.5px solid vars.$rose-op-xlow;
-          border-bottom: 2.5px solid vars.$rose-op-xlow;
-
-          .menu__title-category {
-            @include headings-menu();
-            font-size: 2rem;
-            font-size: clamp(2rem, 1vw, 1rem);
-          }
-
-          .menu__title-heading {
-            font-size: clamp(4.5rem, 1vw, 2.5rem);
-          }
+          font-size: 2rem;
+          font-size: clamp(2rem, 1vw, 1rem);
         }
 
-        .menu__description {
-          margin-right: 1em;
-          padding: 0 1em 1em 0.1em;
-          font-size: 1rem;
+        .menu__title-heading {
+          font-size: clamp(4.5rem, 1vw, 2.5rem);
         }
       }
 
-      .menu__content {
-        height: 100%;
+      .menu__description {
+        margin-right: 1em;
+        padding: 0 1em 1em 0.1em;
+        font-size: 1rem;
+      }
+    }
+
+    .menu__content {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+
+      .menu__slip {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+        padding: 1.2em 1em;
+        border: 0.3em solid vars.$rose-op-xlow;
+        overflow-y: scroll;
+        scrollbar-color: vars.$sand-dark-op vars.$sand-op-low;
 
-        .menu__slip {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          padding: 1.2em 1em;
-          border: 0.3em solid vars.$rose-op-xlow;
-          overflow-y: scroll;
-          scrollbar-color: vars.$sand-dark-op vars.$sand-op-low;
-
-          .menu__slip-heading {
-            @include headings-menu-subtitle();
-            margin: 0.1em 0.5em;
-            padding: 0.1em;
-            font-size: 1.6rem;
-            background: vars.$rose-op-xlow;
-            border-bottom: 0.1em solid vars.$rose-op-xlow;
-          }
-        }
-        .menu__slip-divider {
-          width: 0.1em;
-          height: 100%;
+        .menu__slip-heading {
+          @include headings-menu-subtitle();
           margin: 0.1em 0.5em;
+          padding: 0.1em;
+          font-size: 1.6rem;
+          background: vars.$rose-op-xlow;
+          border-bottom: 0.1em solid vars.$rose-op-xlow;
         }
+      }
+      .menu__slip-divider {
+        width: 0.1em;
+        height: 100%;
+        margin: 0.1em 0.5em;
       }
     }
   }

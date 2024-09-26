@@ -12,6 +12,8 @@ const dots = document.querySelectorAll('.dot');
 
 const menuItemPreview = document.querySelector('.dish-preview-wrapper');
 const menuColumn = document.querySelectorAll('.menu__slip');
+const menuStarters = document.querySelectorAll('.menu__slip-starters');
+const menuMains = document.querySelectorAll('.menu__slip-mains');
 
 //////////////////////////////////////////////
 
@@ -161,28 +163,45 @@ dotsContainer.addEventListener('click', (e) => {
 //////////////////////////////////////////////
 
 // PREVIEW DISH //
-const getMenuItem = async (e, item) => {
+const loadMenu = async (e, item) => {
   try {
-    // Get data id from menu item
-    const id = item.dataset.id;
-    console.log(id);
-
-    // Compare id with json data
-    const res = await fetch('http://127.0.0.1:8000/api/menu');
-    if (!res.ok) throw new Error('Failed to fetch data');
-
+    const res = await fetch('/api/menu');
     const data = await res.json();
-    console.log('FRONTEND:', data);
 
-    // Generate markup
-    const markup = `<h1>Yes ${data.id}</h1>`;
+    const markup = function (category) {
+      return `
+      <h4 class="menu__slip-heading">${category}</h4>
+      <div class="menu-card__item" data-id="${item.id}"></div>
+        <div class="menu-card__item-title--wrapper">
+          <p class="menu-card__item-title">${item.name}</p>
+          <span class="menu-card__item-price">${item.price}</span>
+        </div>
+        <em class="menu-card__item-description">${item.description}</em>
+      </div>
+    `;
+    };
 
-    // Clear container and insert markup
-    menuItemPreview.innerHTML = '';
-    menuItemPreview.innerHTML = markup;
+    if (data.status === 'success') {
+      const menu = data.data.menu;
+      menu.forEach((item) => {
+        if (item.category === 'starter') {
+          menuStarters.innerHTML = '';
+          menuStarters.insertAdjacentHTML('beforeend', markup('Starters'));
+        }
+        if (item.category === 'main') {
+          menuStarters.innerHTML = '';
+          menuMains.insertAdjacentHTML('beforeend', markup('Mains'));
+        }
+      });
+    }
   } catch (err) {
     console.log(err);
   }
+};
+
+const loadPreview = async () => {
+  // Get data id from menu item
+  const id = item.dataset.id;
 };
 
 menuColumn.forEach((col) =>
