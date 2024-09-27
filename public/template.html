@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- //////////////////// LEAFLET ///////////////////////-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
     <title>Café Lorem</title>
   </head>
   <body>
@@ -172,7 +186,7 @@
 
       <!-- //////////////////// MENU RIGHT /////////////////////-->
       <div class="dish-preview-wrapper">
-        <div class="dish-preview-container">
+        <div class="dish-preview-container zero-opacity">
           <span class="dish-preview__price">$12.99</span>
           <div class="dish-preview__text-container">
             <h2 class="dish-preview__name">Scallops</h2>
@@ -180,14 +194,14 @@
           </div>
           <span class="dish-preview__rectangle"></span>
         </div>
-        <div class="dish-preview__img">
+        <div class="dish-preview__img zero-opacity">
           <img src="./img/photos/about-1.jpg" alt="Scallops" />
         </div>
       </div>
     </div>
 
     <!-- /////////////////// CONTACT ///////////////////////-->
-    <!-- <div id="contact">
+    <div id="contact">
       <div class="contact-image"></div>
 
       <div class="contact-content">
@@ -206,7 +220,7 @@
               </tr>
             </table>
           </div>
-          <div class="contact-info--section contact-info__map">
+          <div id="map" class="contact-info--section contact-info__map">
             MAP GOES HERE
           </div>
         </div>
@@ -246,7 +260,7 @@
       </div>
 
       <div class="footer__copyright">Copyright</div>
-    </footer> -->
+    </footer>
   </body>
 </html>
 

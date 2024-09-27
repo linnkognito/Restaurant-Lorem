@@ -637,6 +637,10 @@ footer .footer-section {
   display: none;
 }
 
+.zero-opacity {
+  opacity: 0;
+}
+
 .blur {
   transition: filter 0.3s ease;
 }

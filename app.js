@@ -15,6 +15,7 @@ app.use(express.json()); // middleware
 const menu = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/data.json`, 'utf-8')
 );
+const home = fs.readFileSync('./public/template.html', 'utf-8');
 
 // Handler function
 const getMenu = (req, res) => {
@@ -26,7 +27,12 @@ const getMenu = (req, res) => {
   });
 };
 
+const getHomePage = (req, res) => {
+  res.status(200).send(home);
+};
+
 // Requests
 app.get('/api/menu', getMenu);
+app.get('/', getHomePage);
 
 module.exports = app;

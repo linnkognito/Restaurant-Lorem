@@ -56,4 +56,16 @@ module.exports = {
     assetModuleFilename: 'fonts/[name][ext]', // Ensures fonts are placed in dist/fonts/
     clean: true,
   },
+
+  devServer: {
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:3000',
+      },
+    ],
+    static: true, // might not be needed since serving from 'public' = default
+    hot: true,
+    port: 8081,
+  },
 };

@@ -10,10 +10,11 @@ const picturesContainer = document.querySelector('.pictures-container');
 const dotsContainer = document.querySelector('.dots-container');
 const dots = document.querySelectorAll('.dot');
 
-const menuItemPreview = document.querySelector('.dish-preview-wrapper');
 const menuColumn = document.querySelectorAll('.menu__slip');
-const menuStarters = document.querySelectorAll('.menu__slip-starters');
-const menuMains = document.querySelectorAll('.menu__slip-mains');
+const menuStarters = document.querySelector('.menu__slip-starters');
+const menuMains = document.querySelector('.menu__slip-mains');
+
+const preview = document.querySelector('.dish-preview-wrapper');
 
 //////////////////////////////////////////////
 
@@ -162,35 +163,67 @@ dotsContainer.addEventListener('click', (e) => {
 
 //////////////////////////////////////////////
 
-// PREVIEW DISH //
-const loadMenu = async (e, item) => {
+// MARKUP //
+const menuItemMarkup = function (item) {
+  return `
+    <div class="menu-card__item" data-id="${item.id}">
+      <div class="menu-card__item-title--wrapper">
+        <p class="menu-card__item-title">${item.name}</p>
+        <span class="menu-card__item-price">${item.price}</span>
+      </div>
+      <em class="menu-card__item-description">${item.description}</em>
+    </div>
+    `;
+};
+
+const previewItemMarkup = function (item) {
+  console.log('markup:', item);
+  return `
+  <div class="dish-preview-container">
+    <span class="dish-preview__price">$${item.price}</span>
+    <div class="dish-preview__text-container">
+      <h2 class="dish-preview__name">${item.name}</h2>
+      <p class="dish-preview__description">${item.description}</p>
+    </div>
+    <span class="dish-preview__rectangle"></span>
+  </div>
+  <div class="dish-preview__img">
+    <img src="${item.img}" alt="${item.imgAlt}" />
+  </div>
+  `;
+};
+
+const loadPreview = async (item) => {
+  try {
+    // Get id from menu item
+    const id = item.dataset.id - 1;
+
+    // Get menu item data
+    const res = await fetch('/api/menu');
+    const menu = await res.json();
+    item = menu.data.menu[id];
+
+    // Clear container
+    preview.innerHTML = '';
+    preview.insertAdjacentHTML('afterbegin', previewItemMarkup(item));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const loadMenu = async () => {
   try {
     const res = await fetch('/api/menu');
     const data = await res.json();
-
-    const markup = function (category) {
-      return `
-      <h4 class="menu__slip-heading">${category}</h4>
-      <div class="menu-card__item" data-id="${item.id}"></div>
-        <div class="menu-card__item-title--wrapper">
-          <p class="menu-card__item-title">${item.name}</p>
-          <span class="menu-card__item-price">${item.price}</span>
-        </div>
-        <em class="menu-card__item-description">${item.description}</em>
-      </div>
-    `;
-    };
 
     if (data.status === 'success') {
       const menu = data.data.menu;
       menu.forEach((item) => {
         if (item.category === 'starter') {
-          menuStarters.innerHTML = '';
-          menuStarters.insertAdjacentHTML('beforeend', markup('Starters'));
+          menuStarters.insertAdjacentHTML('beforeend', menuItemMarkup(item));
         }
         if (item.category === 'main') {
-          menuStarters.innerHTML = '';
-          menuMains.insertAdjacentHTML('beforeend', markup('Mains'));
+          menuMains.insertAdjacentHTML('beforeend', menuItemMarkup(item));
         }
       });
     }
@@ -199,15 +232,18 @@ const loadMenu = async (e, item) => {
   }
 };
 
-const loadPreview = async () => {
-  // Get data id from menu item
-  const id = item.dataset.id;
-};
+//////////////////////////////////////////////
 
+// EVENT LISTENERS //
 menuColumn.forEach((col) =>
   col.addEventListener('click', (e) => {
     e.preventDefault();
     const listItem = e.target.closest('.menu-card__item');
-    if (listItem) getMenuItem(e, listItem);
+    console.log('listItem:', listItem);
+    if (listItem) loadPreview(listItem);
   })
 );
+
+//////////////////////////////////////////////
+// INIT //
+window.onload = loadMenu();

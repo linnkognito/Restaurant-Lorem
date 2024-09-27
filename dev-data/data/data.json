@@ -7,5 +7,23 @@
     "img": "/img/photos/about-1.jpg",
     "imgAlt": "Scallops",
     "category": "starter"
+  },
+  {
+    "id": 2,
+    "name": "Halibut",
+    "price": 24.95,
+    "description": "Adipisci velit, sed quia non numquam eius modi.",
+    "img": "/img/photos/about-1.jpg",
+    "imgAlt": "Halibut",
+    "category": "starter"
+  },
+  {
+    "id": 3,
+    "name": "Soup",
+    "price": 15.95,
+    "description": "Velit, sed quia non numquam eius modi.",
+    "img": "/img/photos/about-1.jpg",
+    "imgAlt": "Soup",
+    "category": "starter"
   }
 ]
