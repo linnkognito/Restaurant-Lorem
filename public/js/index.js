@@ -232,6 +232,18 @@ const loadMenu = async () => {
   }
 };
 
+const loadContactInfo = async () => {
+  try {
+    const res = await fetch('/api/contact');
+    const data = res.json();
+
+    if (data.status === 'success') {
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 //////////////////////////////////////////////
 
 // EVENT LISTENERS //
@@ -243,6 +255,24 @@ menuColumn.forEach((col) =>
     if (listItem) loadPreview(listItem);
   })
 );
+
+//////////////////////////////////////////////
+
+// MAP //
+const coords = [45.5152, -122.6784];
+const map = L.map('map').setView(coords, 16);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+L.marker(coords).bindPopup('Restaurant Lorem').openPopup(coords).addTo(map);
+
+map.on('dblclick', () => {
+  map.flyTo(coords, 16);
+});
 
 //////////////////////////////////////////////
 // INIT //

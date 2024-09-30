@@ -636,6 +636,12 @@ nav:hover {
       padding: 2em;
       background: vars.$off-white;
       border: 1em solid vars.$sand-op;
+
+      .contact-info__map,
+      #map {
+        width: 50%;
+        height: 40vh;
+      }
     }
     .contact-info--section {
       width: 50%;

@@ -595,6 +595,11 @@ nav:hover {
   background: rgb(238, 238, 238);
   border: 1em solid rgba(222, 212, 207, 0.8);
 }
+#contact .contact-content .contact-info .contact-info__map,
+#contact .contact-content .contact-info #map {
+  width: 50%;
+  height: 40vh;
+}
 #contact .contact-content .contact-info--section {
   width: 50%;
   border: 1px solid black;
