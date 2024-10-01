@@ -237,41 +237,52 @@ const loadContactInfo = async () => {
     const res = await fetch('/api/contact');
     const data = await res.json();
 
-    const markupContact = (label, data) => {
-      let value;
-      value = `<div class="contact-info__table-data">${data}</div>`;
+    const formatHours = (hours) => {
+      hours = hours.toString();
+      return hours.slice(0, 2) + ':' + hours.slice(2);
+    };
 
-      if (typeof data === 'object') {
-        value = Object.values(data)
-          .map((val) => `<div class="contact-info__table-data">${val}</div>`)
-          .join('');
-      }
-
-      return `
+    const insertMarkup = (label, val) => `
     <div class="contact-info__table-row">
       <div class="contact-info__table-label">${label}</div>
       <div class="contact-info__table-data-wrapper">
-        ${value}
+        ${val}
       </div>
     </div>
     `;
-    };
+
+    const dataMarkup = (val) => `
+      <div class="contact-info__table-data">${val}</div>
+    `;
 
     if (res.ok) {
       const table = document.querySelector('.contact-info__table');
       table.innerHTML = '';
+
       table.insertAdjacentHTML(
         'afterbegin',
-        markupContact('Phone', data.phone) +
-          markupContact('Email', data.email) +
-          markupContact('Address', data.address) +
-          markupContact('Hours', data.openingHours)
+        insertMarkup('Phone', dataMarkup(data.phone)) +
+          insertMarkup('Email', dataMarkup(data.email)) +
+          insertMarkup(
+            'Address',
+            dataMarkup(data.address.street) +
+              dataMarkup(
+                `${data.address.city}, ${data.address.state} ${data.address.zip}`
+              )
+          ) +
+          insertMarkup(
+            'Hours',
+            dataMarkup(
+              `${formatHours(data.openingHours.open)} - ${formatHours(
+                data.openingHours.close
+              )}`
+            )
+          )
       );
     }
   } catch (err) {
     console.log(err);
   }
-};
 
 //////////////////////////////////////////////
 

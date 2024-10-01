@@ -590,7 +590,6 @@ nav:hover {
   height: fit-content;
   min-height: 60%;
   margin-left: -40%;
-  padding: 2em;
   background: rgb(238, 238, 238);
   border: 1em solid rgb(222, 212, 207);
 }
@@ -599,7 +598,8 @@ nav:hover {
   min-width: 50%;
   height: 100%;
   min-height: 40vh;
-  border: 2px solid rgba(222, 212, 207, 0.5);
+  margin: auto;
+  background: rgb(222, 212, 207);
 }
 #contact .contact-wrapper .contact-info--section {
   display: flex;
@@ -615,6 +615,7 @@ nav:hover {
   justify-content: start;
   gap: 1.2em;
   width: 50%;
+  padding: 2em;
 }
 #contact .contact-wrapper .contact-info__table .contact-info__table-row {
   display: flex;
@@ -634,7 +635,7 @@ nav:hover {
   max-width: 66%;
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0 0.5em;
   border: 2px solid rgba(222, 212, 207, 0.5);
 }
 #contact .contact-wrapper .contact-info__table .contact-info__table-row .contact-info__table-data {
