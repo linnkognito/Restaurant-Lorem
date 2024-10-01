@@ -235,9 +235,39 @@ const loadMenu = async () => {
 const loadContactInfo = async () => {
   try {
     const res = await fetch('/api/contact');
-    const data = res.json();
+    const data = await res.json();
+    // console.log(data);
 
-    if (data.status === 'success') {
+    const markupContact = (label, data) => {
+      let value;
+      value = `<div class="contact-info__table-data">${data}</div>`;
+
+      if (typeof data === 'object') {
+        value = Object.values(data)
+          .map((val) => `<div class="contact-info__table-data">${val}</div>`)
+          .join('');
+      }
+
+      return `
+    <div class="contact-info__table-row">
+      <div class="contact-info__table-label">${label}</div>
+      <div class="contact-info__table-data-wrapper">
+        ${value}
+      </div>
+    </div>
+    `;
+    };
+
+    if (res.ok) {
+      const table = document.querySelector('.contact-info__table');
+      table.innerHTML = '';
+      table.insertAdjacentHTML(
+        'afterbegin',
+        markupContact('Phone', data.phone) +
+          markupContact('Email', data.email) +
+          markupContact('Address', data.address) +
+          markupContact('Opening hours', data.openingHours)
+      );
     }
   } catch (err) {
     console.log(err);
@@ -277,3 +307,4 @@ map.on('dblclick', () => {
 //////////////////////////////////////////////
 // INIT //
 window.onload = loadMenu();
+window.onload = loadContactInfo();

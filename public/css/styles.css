@@ -561,6 +561,7 @@ nav:hover {
   gap: 1em;
   padding: 5% 10% 0;
   padding-right: none;
+  background: rgba(222, 212, 207, 0.3);
 }
 #contact .contact-image {
   width: 50%;
@@ -569,12 +570,12 @@ nav:hover {
   min-height: 100vh;
   background: url("../../public/img/photos/contact-bg.jpg");
 }
-#contact .contact-content {
+#contact .contact-wrapper {
   width: 50%;
-  min-width: 50%;
+  min-width: fit-content;
   padding: 10% 0 0 2%;
 }
-#contact .contact-content .contact-heading {
+#contact .contact-wrapper .contact-heading {
   width: fit-content;
   font-family: "Feonie", serif;
   font-weight: 400;
@@ -583,36 +584,55 @@ nav:hover {
   padding-bottom: 3%;
   font-size: 5rem;
 }
-#contact .contact-content .contact-info {
+#contact .contact-wrapper .contact-info {
   display: flex;
-  justify-content: space-between;
-  gap: 1em;
-  width: 100%;
+  min-width: fit-content;
   height: fit-content;
   min-height: 60%;
   margin-left: -40%;
   padding: 2em;
   background: rgb(238, 238, 238);
-  border: 1em solid rgba(222, 212, 207, 0.8);
+  border: 1em solid rgb(222, 212, 207);
 }
-#contact .contact-content .contact-info .contact-info__map,
-#contact .contact-content .contact-info #map {
+#contact .contact-wrapper .contact-info #map {
   width: 50%;
-  height: 40vh;
+  min-width: 50%;
+  height: 100%;
+  min-height: 40vh;
 }
-#contact .contact-content .contact-info--section {
+#contact .contact-wrapper .contact-info--section {
+  display: flex;
   width: 50%;
+  height: 100%;
+  min-height: 40vh;
+  padding: 1em 2em;
   border: 1px solid black;
 }
-#contact .contact-content .contact-info__table {
-  margin: auto;
+#contact .contact-wrapper .contact-info__table {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
 }
-#contact .contact-content .contact-info__table-label {
+#contact .contact-wrapper .contact-info__table .contact-info__table-row {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+#contact .contact-wrapper .contact-info__table .contact-info__table-row .contact-info__table-label {
+  height: fit-content;
+  margin-right: 0.5em;
+  padding: 0.2em;
   font-size: 1.3rem;
+  box-shadow: -3px 3px 0 rgba(222, 212, 207, 0.5);
 }
-#contact .contact-content .contact-info__table-data {
+#contact .contact-wrapper .contact-info__table .contact-info__table-row .contact-info__table-data-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+#contact .contact-wrapper .contact-info__table .contact-info__table-row .contact-info__table-data {
+  padding: 0.3em 0;
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 footer {
