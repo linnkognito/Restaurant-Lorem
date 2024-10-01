@@ -236,7 +236,6 @@ const loadContactInfo = async () => {
   try {
     const res = await fetch('/api/contact');
     const data = await res.json();
-    // console.log(data);
 
     const markupContact = (label, data) => {
       let value;
@@ -266,7 +265,7 @@ const loadContactInfo = async () => {
         markupContact('Phone', data.phone) +
           markupContact('Email', data.email) +
           markupContact('Address', data.address) +
-          markupContact('Opening hours', data.openingHours)
+          markupContact('Hours', data.openingHours)
       );
     }
   } catch (err) {
